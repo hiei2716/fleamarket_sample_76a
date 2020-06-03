@@ -2,7 +2,7 @@
 lock "~> 3.14.0"
 
 set :application, "fleamarket_sample_76a"
-set :repo_url, "git@github.com:hiei2716/fleamarket_sample_76a"
+set :repo_url, "git@github.com:hiei2716/fleamarket_sample_76a.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
@@ -41,9 +41,7 @@ set :rbenv_ruby, '2.5.1'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
-----------------------------------------------------------------------------------------
-雛形アプリで必要なファイルを作成する（７まで）
-ここまでできている
+
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/chatspace.pem']
 
