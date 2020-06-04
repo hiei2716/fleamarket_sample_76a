@@ -5,7 +5,7 @@
     margin:0 auto;
     width: 170px;
   }
-  
+// ーーー商品出品画像ーーー
   .n__form__container {
     background-color: #fff;
     margin:30px auto;
@@ -23,44 +23,7 @@
         margin: 16px 18px 0;
         display: flex;
         flex-wrap: wrap;
-        .prev-content {
-          display: flex;
-          .preview-box {
-            height: 162px;
-            width: 120px;
-            margin: 0 15px 10px 0;
-            .upper-box {
-              height: 112px;
-              width: 100%;
-              img {
-                width: 120px;
-                height: 112px;
-              }
-            }
-            .lower-box {
-              display: flex;
-              text-align: center;
-              .update-box {
-                color: #00b0ff;
-                width: 50%;
-                height: 50%;
-                line-height: 50px;
-                border: 1px solid #eee; 
-                background-color: #f5f5f5;
-                cursor: pointer;               
-              }
-              .delete-box {
-                color: #00b0ff;
-                width: 100%;
-                height: 50%;
-                line-height: 50px;
-                border: 1px solid #eee; 
-                background-color: #f5f5f5;
-                cursor: pointer;
-              }
-            }
-          }
-        }
+      }
         .label-content{
           margin-bottom: 10px;
           width: 770px;
@@ -89,16 +52,10 @@
             }
           }
         }
-        .hidden-content {
-          .hidden-field {
-            display: none;
-          }
-          .hidden-checkbox {
-            display: none;
-          }
-        }
-      }
     }
+  }
+
+// ーーー商品名・商品の説明ーーー
     .n__item__container {
       margin-top: 30px;
       padding-bottom: 50px;
@@ -108,20 +65,22 @@
         margin-left: 25px
       }
       .name-box {
-        width: 95%;
-        height: 50px;
+        width: 90%;
+        height: 40px;
         margin-top: 10px;
         margin-left: 25px;
         padding: 5px;
       }
-      .description-box {
-        width: 95%;
-        height: 120px;
-        margin-top: 10px;
-        margin-left: 25px;
-        padding: 5px;
-      }
+    .description-box {
+      width: 90%;
+      height: 120px;
+      margin-top: 10px;
+      margin-left: 25px;
+      padding: 5px;
     }
+  }
+
+// ーーー商品の詳細（カテゴリー）ーーー
     .n__details__container {
       margin-top: 30px;
       padding-bottom: 50px;
@@ -145,6 +104,8 @@
         padding: 5px;
       }
     }
+
+// ーーー配送についてーーー
     .n__post__container {
       margin-top: 30px;
       padding-bottom: 50px;
@@ -161,6 +122,8 @@
         padding: 5px;
       }
     }
+
+// ーーー価格についてーーー
     .n__price__container {
       margin-top: 30px;
       padding-bottom: 50px;
@@ -186,6 +149,7 @@
         }
       }
     }
+// ーーー出品するボタンーーー
     .n__submit__container {
       margin-top: 30px;
       padding-bottom: 50px;
@@ -216,14 +180,14 @@
     .n__attention__container {
       margin-top: 30px;
       margin-bottom: 30px;
-      
       .message {
         color: black;
         font-size: 13px;
         padding: 5px;
       }
     }
-  }
+
+// ーーーフッターーーー
   .n__end__logo__container {
     background-color: #f8f8f8;
     height: 150px;
