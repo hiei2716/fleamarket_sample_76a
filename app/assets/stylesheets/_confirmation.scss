@@ -65,30 +65,26 @@
         &__bottom{
           width: 100%;
           &__price{
-            height: 128px;
             display: flex;
             border-bottom: solid 1px #ffffff;
             font-size: 20px;
             font-weight: bold;
-            line-height: 128px;
+            padding: 24px 0;
             justify-content: space-between;
-
-            &--left{
-
-            }
-            &--right{
-
-            }
           }
           &__purchase{
-            height: 50px;
-            text-align: center;
-            line-height: 50px;
-            border: 1px solid #888;
-            background: #888;
-            color: #fff;
-            cursor: pointer;
-            margin-top: 24px;
+            .submit-btn{
+              height: 50px;
+              width: 343px;
+              background: #888;
+              color: #fff;
+              cursor: pointer;
+              margin-top: 32px;
+              border-style: none;
+              .letter{
+                font-size: 14px;
+              }
+            }
           }
         }
       }
