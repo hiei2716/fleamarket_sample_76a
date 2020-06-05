@@ -22,7 +22,7 @@
         display: block;
         margin: 16px 18px 0;
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap;// 複数行に折り返して押し込む
       }
         .label-content{
           margin-bottom: 10px;
@@ -41,14 +41,13 @@
               left: 16px;
               right: 16px;
               text-align: center;
-              font-size: 14px;
+              font-size: 15px;
               line-height: 1.5;
               font-weight: bold;
-              -webkit-transform: translate(0, -50%);
-              transform: translate(0, -50%);
-              pointer-events: none;
-              white-space: pre-wrap;
-              word-wrap: break-word;
+              transform: translate(0, -50%);// 要素を変形させて移動させる
+              pointer-events: none;// 要素がターゲットではないことを示す
+              white-space: pre-wrap;// 行の折り返しは要素のあるときに行う
+              word-wrap: break-word;// 必要に応じて単語の途中で改行
             }
           }
         }

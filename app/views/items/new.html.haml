@@ -1,16 +1,14 @@
 .n__container
   .n__logo
     = link_to image_tag('logo.png', :width => '170', :height => '60'), root_path
-  
+
   .n__form__container
-    %form
-      %ul
     .n__image__container
       %p.message 商品出品画像（必須）
       %p.message 最大5枚までアップロード出来ます
       .post__drop__box__container
         .label-content
-          %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
+          %label{class: "label-box", id: "label-box--0"}
             %pre.label-box__text-visible クリックしてファイルをアップロード
     .n__item__container
       %p.message 商品名（必須）
@@ -21,7 +19,7 @@
       %p.message 商品の詳細
       %p.message カテゴリー（必須）
       %select(name="select" class ="select-box")
-        %option カテゴリーを選んでください
+        %option 選択してください
         %option(value="mens") メンズ
         %option(value="lades") レディース
         %option(value="kids") キッズ
@@ -53,21 +51,21 @@
       %select(name="condition" class ="select-box")
         %option 選択してください
         %option(value="new") 新品
-        %option(value="good") とても良好
-        %option(value="normal") 傷や汚れがあり
-        %option(value="bad") 中古
+        %option(value="good") 良い
+        %option(value="normal") 普通
+        %option(value="bad") 悪い
         %option(value="sobad") とても悪い
     .n__post__container
       %p.message 配送について
       %p.message 配送料の負担（必須）
       %select(name="postage" class ="select-box")
         %option(value="included") 送料込み（出品者負担）
+        %option(value="excluded") 送料別途（購入者負担）
       %p.message 発送までの日数（必須）
       %select(name="wait" class ="select-box")
         %option(value="fast") 1~2日で発送
         %option(value="normal") 2~3日で発送
         %option(value="slow") 4~7日で発送
-
     .n__price__container
       %p.message 価格について（¥100〜9,999,999）
       .content-flex
@@ -75,7 +73,6 @@
         .price
           %span ¥
           %input(type="number" placeholder = "最低価格 ¥100" class= "price-box")
-
     .n__submit__container
       .button
         %input(type="submit" name="exhibition" value="出品する" class="exhibition")
