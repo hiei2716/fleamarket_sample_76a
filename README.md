@@ -67,9 +67,9 @@
 |name|string|null:：false|
 |description|text|null: false|
 |size|string|
-|category_id|integer|null: false|
-|user_id|integer|foreign_key: true|
-|brand_id|integer|null: false|
+|category_id|references|null: false|
+|user_id|references|foreign_key: true|
+|brand_id|references|null: false|
 |condition|string|null: false|
 |postage|integer|null: false|
 |prefecture_id|integer|null: false|
@@ -96,8 +96,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user 
