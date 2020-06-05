@@ -1,10 +1,10 @@
-.container{
+.r__container{
   background-color: #ffffff;
   height: 100vh;
   width: 100%;
 
   // ヘッダー
-  .header{
+  .r__header{
     height: 128px;
     width: 100%;
     // text-align: center;
@@ -16,7 +16,7 @@
   }
 
   // メイン
-  .main{
+  .r__main{
     height: calc(100vh - 348px);
 
     // コンテンツ
@@ -73,7 +73,7 @@
             justify-content: space-between;
           }
           &__purchase{
-            .submit-btn{
+            .r__submit-btn{
               height: 50px;
               width: 343px;
               background: #888;
@@ -92,7 +92,7 @@
   }
 
   // フッター
-  .footer{
+  .r__footer{
     margin-top: 60px;
     z-index: 1;
     height: 100px;
