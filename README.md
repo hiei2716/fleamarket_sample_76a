@@ -1,4 +1,4 @@
-# fleamarket_sample DB設計
+# 76_a fleamarket_sample DB設計
 
 ## usersテーブル
 |Column|Type|Options|
@@ -51,6 +51,7 @@
 
 ## credit_cardsテーブル
 |Column|Type|Options|
+|------|----|-------|
 |card_number|integer|null:false, unique: true|
 |expiration_year|integer|null:false|
 |expiration_month|integer|null:false|
@@ -77,12 +78,12 @@
 |buyer_id|integer|
 
 ### Association
-- belongs_to :user, optional: true 
+- belongs_to :user
 - has_many :comments 
 - has_many :images
 - belongs_to :brand
 - belongs_to :category
-- has_many :images, dependent: :destroy accepts_nested_attributes_for :images, allow_destroy: true
+- has_many :images, dependent: :destroy
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :category
 - belongs_to_active_hash :brand
