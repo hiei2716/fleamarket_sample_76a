@@ -1,17 +1,17 @@
-.n__container {
+.t__container {
   background-color: #f8f8f8;
-  .n__logo {
+  .t__logo {
     padding-top: 30px;
     margin:0 auto;
     width: 170px;
   }
 // ーーー商品出品画像ーーー
-  .n__form__container {
+  .t__form__container {
     background-color: #fff;
     margin:30px auto;
     width: 58%;
     padding-top: 20px;
-    .n__image__container {
+    .t__image__container {
       padding-bottom: 20px;
       border-bottom: solid 1px #eee;
       .message {
@@ -55,7 +55,7 @@
   }
 
 // ーーー商品名・商品の説明ーーー
-    .n__item__container {
+    .t__item__container {
       margin-top: 30px;
       padding-bottom: 50px;
       border-bottom: solid 1px #eee;
@@ -80,7 +80,7 @@
   }
 
 // ーーー商品の詳細（カテゴリー）ーーー
-    .n__details__container {
+    .t__details__container {
       margin-top: 30px;
       padding-bottom: 50px;
       border-bottom: solid 1px #eee;
@@ -105,7 +105,7 @@
     }
 
 // ーーー配送についてーーー
-    .n__post__container {
+    .t__post__container {
       margin-top: 30px;
       padding-bottom: 50px;
       border-bottom: solid 1px #eee;
@@ -123,7 +123,7 @@
     }
 
 // ーーー価格についてーーー
-    .n__price__container {
+    .t__price__container {
       margin-top: 30px;
       padding-bottom: 50px;
       border-bottom: solid 1px #eee;
@@ -149,7 +149,7 @@
       }
     }
 // ーーー出品するボタンーーー
-    .n__submit__container {
+    .t__submit__container {
       margin-top: 30px;
       padding-bottom: 50px;
       border-bottom: solid 1px #eee;
@@ -176,7 +176,7 @@
         }
       }
     }
-    .n__attention__container {
+    .t__attention__container {
       margin-top: 30px;
       margin-bottom: 30px;
       .message {
@@ -187,7 +187,7 @@
     }
 
 // ーーーフッターーーー
-  .n__end__logo__container {
+  .t__end__logo__container {
     background-color: #f8f8f8;
     height: 150px;
     &__end__logo {
