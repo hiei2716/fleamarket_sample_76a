@@ -1,24 +1,134 @@
-# README
+# fleamarket_sample DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|password_confirmation|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|year|integer|null: false|
+|month|integer|null: false|
+|day|integer|null: false|
+|phone_number|integer|null: false|
+|gender|integer|null: false|
+|introduction|text|
+|user_image|string|
 
-Things you may want to cover:
+### Association
+- has_many :addresses
+- has_many :items
+- has_many :comments
+- has_one :credit_card, dependent: :destroy
 
-* Ruby version
+### index
+- add_index: [:nickname, :gender]
 
-* System dependencies
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null:false|
+|first_name|string|null:false|
+|family_name_kana|integer|null: false|
+|first_name_kana|string|null:false|
+|postal_code|string|null:false|
+|city|string|null:false|
+|local|string|null:false|
+|house_number|string|null:false|
+|building_name|string|
+|phone_number|integer|
+|user_id|references|null: false, foreign_key: true|
 
-* Configuration
+### Association
+- belongs_to :user
 
-* Database creation
+### index
+- add_index: [:city, :user_id]
 
-* Database initialization
+## credit_cardsテーブル
+|Column|Type|Options|
+|card_number|integer|null:false, unique: true|
+|expiration_year|integer|null:false|
+|expiration_month|integer|null:false|
+|security_code|integer|null:false|
+|user_id|references|null: false, foreign_key: true|
 
-* How to run the test suite
+### Association
+- belongs_to:user
 
-* Services (job queues, cache servers, search engines, etc.)
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null:：false|
+|description|text|null: false|
+|size|string|
+|category_id|integer|null: false|
+|user_id|integer|foreign_key: true|
+|brand_id|integer|null: false|
+|condition|string|null: false|
+|postage|integer|null: false|
+|prefecture_id|integer|null: false|
+|wait|string|null: false|
+|price|integer|null: false|
+|buyer_id|integer|
 
-* Deployment instructions
+### Association
+- belongs_to :user, optional: true 
+- has_many :comments 
+- has_many :images
+- belongs_to :brand
+- belongs_to :category
+- has_many :images, dependent: :destroy accepts_nested_attributes_for :images, allow_destroy: true
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :category
+- belongs_to_active_hash :brand
 
-* ...
+
+### index
+- add_index: [:name, :price]
+
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user 
+- belongs_to :item
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|src|string|null: false|
+|item_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item, optional: true
+
+
+### Categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|
+
+### Association
+- has_many :items
+
+### index
+- add_index: [:gender, :name]
+
+
+## Brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+
+### Association
+- has_many :items
