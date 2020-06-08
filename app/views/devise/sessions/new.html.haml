@@ -1,0 +1,34 @@
+.login
+  .login__header
+    %h1.login__header__logo
+      = image_tag "logo.png", size: "185x50", alt: "FURIMA画像"
+  .login__menu
+    .login__menu__box
+      .login__menu__box__account
+        %p.login_menu__box__account__message アカウントをお持ちでない方はこちら
+        = link_to new_user_registration_path do
+          新規会員登録
+      .login__menu__box__sns
+        sns
+      .login__menu__box__form
+        mail
+
+
+
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"

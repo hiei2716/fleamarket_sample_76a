@@ -1,0 +1,31 @@
+.login{
+  height:100vh;
+  width:100vw;
+  background-color:whitesmoke;
+  &__header{
+    height:128px;
+    width:100vw;
+    text-align: center;
+    &__logo{
+      margin: 40px 0 0;
+      display: inline-block;
+    }
+  }
+  &__menu{
+    &__box{
+      height:500px;
+      width: 456px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      &__account{
+        padding: 40px 64px;
+        text-align: center;
+      }
+      &__sns{
+        padding: 32px 64px;
+        border-top: 1px solid #eee;
+      }
+    }
+
+  }
+}
