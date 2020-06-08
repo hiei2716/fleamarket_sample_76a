@@ -1,35 +1,162 @@
--# %h1 Items#index
--# %p Find me in app/views/items/index.html.erb
+.header
+  .header__inner
+    .header__inner__main
+      .header__inner__main__logo
+        %a(href="/")
+          = image_tag 'logo.png', alt: '', height: '40px', width: '140px', class: 'img-logo'
+      %input.header__inner__main__search{:name => "search", :placeholder => "キーワードから探す", :type => "search", :value => ""}/ 
+      .header__inner__main__btn(type="submit")
+        %a(href="/")
+          = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 'header__inner__main-search-btn-icon'
 
-.container
-  .header
-    .header__logo
-      = link_to image_tag('logo.png', :width => '170', :height => '60'), root_path
-  .main
-    .main__contents
-      .main__contents__first
-        購入内容の確認
-      .main__contents__second
-        .main__contents__second__middle
-          .main__contents__second__middle__item__image
-            <img data-src="https://static.mercdn.net/thumb/photos/m47880230608_1.jpg?1591170738" class="lazyloaded is-higher-width" alt="" width="80" height="60" src="https://static.mercdn.net/thumb/photos/m47880230608_1.jpg?1591170738">
-          .main__contents__second__middle__item__detail
-            %p.item__name
-              NIKEコラボレーション ワッフルレーサー Black / 27
-            %p.item__price
-              ¥34,439 （税込）送料込み
-        .main__contents__second__bottom
-          .main__contents__second__bottom__price
-            .main__contents__second__bottom__price--left
-              支払い金額
-            .main__contents__second__bottom__price--right
-              ¥34,439
-          .main__contents__second__bottom__purchase
-            %button{type: "submit", value:"購入する", class:'submit-btn'}
-              .letter
-                購入する
-  .footer
-    .footer__logo
-      = link_to image_tag('logo-white.png', :width => '170', :height => '60'), root_path
-    .footer__c--mark
-      %p ©FURIMA
+    .header__inner__nav
+      .ul.header__inner__nav__left
+        %li.header__inner__nav__left__first カテゴリー
+        %li.header__inner__nav__left__second ブランド
+      .ul.header__inner__nav__right
+        %li.header__inner__nav__right__first ログイン
+        %li.header__inner__nav__right__second 新規会員登録
+
+.main
+  .main__visual
+    .main__visual__content
+      %h2.main__visual__content__top 人生を変えるフリマアプリ
+      %p.main__visual__content__text 
+        FURIMAはだれでもかんたんに出品・購入できる 
+        %br
+        フリマアプリです
+      .main__visual__content__logo
+        .main__visual__content__logo__app
+          %a(href="http://google.co.jp")
+            = image_tag 'apple-icon.png', alt: '',height: '50px', width: '165px', class: 'apple'
+        .main__visual__content__logo__app
+          %a(href="http://google.co.jp")
+            = image_tag 'google-play.png', alt: '', height: '50px', width: '165px',class: 'google'
+
+  .main__introduction
+    %h2.main__introduction__top FURIMAが選ばれる3つの理由
+    %ul.main__introduction__lists
+      %li.main__introduction__lists__list
+        .main__introduction__lists__list__pic
+          = image_tag 'pict-reason-01.jpg', alt: '' , width: '100%', class: ''
+          %span.main__introduction__lists__list__pic__num 1
+        %h3.main__introduction__lists__list__text
+          %span.main__introduction__lists__list__text__left 3分
+          %span.main__introduction__lists__list__text__right ですぐに出品
+        %p.main__introduction__lists__list__subtext スマホで入力するだけで簡単に出品できる！
+      %li.main__introduction__lists__list
+        .main__introduction__lists__list__pic
+          = image_tag 'pict-reason-02.jpg', alt: '' , width: '100%', class: ''
+          %span.main__introduction__lists__list__pic__num 2
+        %h3.main__introduction__lists__list__text
+          %span.main__introduction__lists__list__text__left シンプル
+          %span.main__introduction__lists__list__text__right で使いやすい
+        %p.main__introduction__lists__list__subtext めんどくさい入力は必要なく、検索も購入もスムーズ！ 
+      %li.main__introduction__lists__list
+        .main__introduction__lists__list__pic
+          = image_tag 'pict-reason-03.jpg', alt: '' , width: '100%', class: ''
+          %span.main__introduction__lists__list__pic__num 3
+        %h3.main__introduction__lists__list__text
+          %span.main__introduction__lists__list__text__left 業界最安
+          %span.main__introduction__lists__list__text__right の手数料
+        %p.main__introduction__lists__list__subtext 最大3%でお得に出品&購入！
+
+
+  .main__middle
+    .main__middle__content
+      %h2.main__middle__content__top 会員数日本一位
+      %p.main__middle__content__text 
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        欲しかったあの商品に出会えるかもしれません。
+      .main__middle__content__logo
+        .main__middle__content__logo__app
+          %a(href="http://google.co.jp")
+            = image_tag 'apple-icon.png', alt: '',height: '50px', width: '165px', class: 'apple'
+        .main__middle__content__logo__app
+          %a(href="http://google.co.jp")
+            = image_tag 'google-play.png', alt: '', height: '50px', width: '165px',class: 'google'
+
+
+  .main__features
+    %h2.main__features__head FURIMAの特徴
+    %ul.main__features__lists
+      %li.main__features__lists__list
+        .main__features__lists__list__pic
+          = image_tag 'icon-01.png', alt: '' , width: '100%', class: ''
+        %h3.main__features__lists__list__text 簡単に売り買いできる
+        %p.main__features__lists__list__subtext スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %li.main__features__lists__list
+        .main__features__lists__list__pic
+          = image_tag 'icon-03.png', alt: '' , width: '100%', class: ''
+        %h3.main__features__lists__list__text 売上金は即日振込みに対応
+        %p.main__features__lists__list__subtext 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %li.main__features__lists__list
+        .main__features__lists__list__pic
+          = image_tag 'icon-04.png', alt: '' , width: '100%', class: ''
+        %h3.main__features__lists__list__text 様々な支払いに対応
+        %p.main__features__lists__list__subtext お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+  .main__items
+    %h2.main__items__head ピックアップカテゴリー
+    .main__items__lists
+      .main__items__lists__head 新規投稿商品
+      .main__items__lists__items
+        .main__items__lists__items__item
+          = image_tag 'a007.png', alt: '' , width: '100%', class: ''
+        .main__items__lists__items__item
+          = image_tag 'a007.png', alt: '' , width: '100%', class: ''
+        .main__items__lists__items__item
+          = image_tag 'a007.png', alt: '' , width: '100%', class: ''
+    %h2.main__items__head ピックアップブランド
+    .main__items__lists
+      .main__items__lists__head アーカイバ
+      .main__items__lists__items
+        .main__items__lists__items__item
+          = image_tag 'a004.png', alt: '' , width: '100%', class: ''
+        .main__items__lists__items__item
+          = image_tag 'a004.png', alt: '' , width: '100%', class: ''
+        .main__items__lists__items__item
+          = image_tag 'a004.png', alt: '' , width: '100%', class: ''
+
+.banner
+  .banner__visual
+    .banner__visual__content
+      %h2.banner__visual__content__top だれでも簡単、人生を変えるフリマアプリ
+      %p.banner__visual__content__text 今すぐ無料ダウンロード！
+    .banner__visual__logo
+      .banner__visual__logo__app
+        %a(href="http://google.co.jp")
+          = image_tag 'apple-icon.png', alt: '',height: '50px', width: '165px', class: 'apple'
+      .banner__visual__logo__app
+        %a(href="http://google.co.jp")
+          = image_tag 'google-play.png', alt: '', height: '50px', width: '165px',class: 'google'
+.footer
+  .footer__contents
+    .ul.footer__contents__list
+      %h2.footer__contents__list__top FURIMAについて
+      %li 会社概要（運営会社）
+      %li プライバシーポリシー
+      %li FURIMA利用規約
+      %li ポイントに関する特約
+    .ul.footer__contents__list
+      %h2.footer__contents__list__top FURIMAを見る
+      %li カテゴリー一覧
+      %li ブランド一覧
+    .ul.footer__contents__list
+      %h2.footer__contents__list__top ヘルプ＆ガイド
+      %li FURIMAガイド
+      %li FURIMAロゴ利用ガイドライン
+      %li お知らせ
+
+  .footer__logo
+    %a(href="/")
+      = image_tag 'logo-white.png', alt: '', height: '40px', width: '140px', class: 'footer__logo__icon'
+  %p © FURIMA
+.btn
+  .btn__icon
+    %span.btn__icon__text 出品する
+    %a(href="/")
+      = image_tag 'icon_camera.png', alt: '' , height: '55px', width: '55px', class: ''
