@@ -6,14 +6,14 @@
     = form_tag do
       .y__credit-form--body--content
         %label カード番号
-        %span.form-require 必須
+        %span.y__form-require 必須
         %br
         = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
         %br
-        =image_tag "credit.png", height: "43px", width: "343px;"
+        =image_tag "credit.png", class: "cards", height: "35px", width: "245px;"
       .y__credit-form--body--content
         %label 有効期限
-        %span.form-require 必須
+        %span.y__form-require 必須
         %br
         .y__credit-form--body--content--exp
           %select#exp_month{name: "exp_month", type: "text"}
@@ -30,7 +30,7 @@
             %option{value: "10"}10
             %option{value: "11"}11
             %option{value: "12"}12
-          %span 月/
+          %span 月
           %select#exp_year{name: "exp_year", type: "text"}
             %option{value: ""} --
             %option{value: "2019"}19
@@ -48,11 +48,11 @@
           %br
       .y__credit-form--body--content
         %label セキュリティコード
-        %span.form-require 必須
+        %span.y__form-require 必須
         %br
-        = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+        = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
         .y__credit-form--body--content--back 
-          %a.form-question ?
-          %span カード裏面の番号とは
+          %a.y__form-question ?
+          %span カード裏面の番号とは?
         #card_token
         = submit_tag "追加する", id: "token_submit", class: "y__credit-form--body--content--button"

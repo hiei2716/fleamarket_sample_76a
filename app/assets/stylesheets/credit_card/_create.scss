@@ -1,20 +1,20 @@
 .y__credit-form {
   float: right;
   width: 700px;
-  height: 550px;
+  height: 600px;
   background-color: #fff;
   &--header {
-    height: 50px;
+    height: 40px;
     line-height: 40px;
     padding: 8px 24px;
     text-align: center;
     font-size: 24px;
-    font-weight: bold;;
+    font-weight: bold;
     border-bottom: solid 1px #f5f5f5;
   }
   &--body {
-    padding: 24px 16px 40px 16px;
-    height: 383px;
+    padding: 25px 15px 40px 15px;
+    height: 380px;
     font-size: 14px;
     font-weight: bold;
     &--content {
@@ -23,12 +23,21 @@
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 15px;
+      padding-top: 5px;
       & .number {
         margin-top: 8px;
-        padding: 10px 16px 8px;
+        padding: 0 8px;
       }
       &--exp {
         margin-top: 8px;
+        & #exp_month {
+          padding: 0 16px;
+          margin-right: 8px;
+        }
+        & #exp_year {
+          padding: 0 16px;
+          margin: 0 8px;
+        }
       }
       input {
         width: 100%;
@@ -40,12 +49,12 @@
       }
       & .cvc {
         margin-top: 8px;
-        padding: 10px 16px 8px;
+        padding: 0 5px;
       }
       &--back {
         color: #0099e8;
         text-align: right;
-        margin-top: 15px;
+        margin-top: 5px;
         cursor : pointer;
       }
       &--button {
@@ -64,4 +73,27 @@
       }
     }
   }
+}
+
+.y__form-require  {
+  background-color: #3CCACE;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 12px;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 
+  '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.y__form-question {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0099e8;
+  color: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  text-align: center;
 }
