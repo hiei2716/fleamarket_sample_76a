@@ -1,0 +1,109 @@
+.container{
+  background-color: #ffffff;
+  height: 100vh;
+  width: 100%;
+
+  // ヘッダー
+  .header{
+    height: 128px;
+    width: 100%;
+    // text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__logo{
+    }
+  }
+
+  // メイン
+  .main{
+    height: calc(100vh - 348px);
+
+    // コンテンツ
+    &__contents{
+      height: 100%;
+      width: 700px;
+      background-color: #f5f5f5;
+      margin: 0 auto;
+
+      // 購入内容の確認
+      &__first{
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 32px;
+        border-bottom: solid 1px #ffffff;
+      }
+
+      // 商品詳細＆購入ボタン
+      &__second{
+        margin: 0 auto;
+        max-width: 343px;
+
+        // 商品詳細 写真・支払金額
+        &__middle{
+          height: 80px;
+          padding: 24px 0;
+          display: flex;
+          border-bottom: solid 1px #ffffff;
+
+          // 商品写真
+          &__item__image{
+            padding-top: 10px;
+          }
+
+          // 商品名・金額
+          &__item__detail{
+            height: 80px;
+            padding-top: 5px;
+            padding-left: 10px;
+            font-size: 15px;
+          }
+        }
+
+        // 支払金額＆購入ボタン
+        &__bottom{
+          width: 100%;
+          &__price{
+            display: flex;
+            border-bottom: solid 1px #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 24px 0;
+            justify-content: space-between;
+          }
+          &__purchase{
+            .submit-btn{
+              height: 50px;
+              width: 343px;
+              background: #888;
+              color: #fff;
+              cursor: pointer;
+              margin-top: 32px;
+              border-style: none;
+              .letter{
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // フッター
+  .footer{
+    margin-top: 60px;
+    z-index: 1;
+    height: 100px;
+    padding: 55px 0;
+    text-align: center;
+    background-color: #272727;
+    &__logo{
+    }
+    &__c--mark{
+      font-size: 12px;
+      color: #ffffff;
+    }
+  }
+}
