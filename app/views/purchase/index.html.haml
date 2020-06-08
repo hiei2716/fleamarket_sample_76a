@@ -1,0 +1,32 @@
+.r__container
+  .r__header
+    .r__header__logo
+      = link_to image_tag('logo.png', width: '170', height: '60'), root_path
+  .r__main
+    .r__main__contents
+      .r__main__contents__first
+        購入内容の確認
+      .r__main__contents__second
+        .r__main__contents__second__middle
+          .r__main__contents__second__middle__item__image
+            = image_tag "https://static.mercdn.net/thumb/photos/m47880230608_1.jpg?1591170738", width: "80", height: "60"
+          .r__main__contents__second__middle__item__detail
+            %p.r__item__name
+              NIKEコラボレーション ワッフルレーサー Black / 27
+            %p.r__item__price
+              ¥34,439 （税込）送料込み
+        .r__main__contents__second__bottom
+          .r__main__contents__second__bottom__price
+            .r__main__contents__second__bottom__price--left
+              支払い金額
+            .r__main__contents__second__bottom__price--right
+              ¥34,439
+          .r__main__contents__second__bottom__purchase
+            %button{type: "submit", value:"購入する", class:'r__submit-btn'}
+              .r__letter
+                購入する
+  .r__footer
+    .r__footer__logo
+      = link_to image_tag('logo-white.png', width: '170', height: '60'), root_path
+    .r__footer__c--mark
+      %p ©FURIMA
