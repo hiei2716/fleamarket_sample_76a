@@ -7,7 +7,7 @@
       %input.header__inner__main__search{:name => "search", :placeholder => "キーワードから探す", :type => "search", :value => ""}/ 
       .header__inner__main__btn(type="submit")
         %a(href="/")
-          = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 'header__inner__main-search-btn-icon'
+          = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 'header__inner__main__btn__icon'
 
     .header__inner__nav
       .ul.header__inner__nav__left
@@ -137,25 +137,34 @@
   .footer__contents
     .ul.footer__contents__list
       %h2.footer__contents__list__top FURIMAについて
-      %li 会社概要（運営会社）
-      %li プライバシーポリシー
-      %li FURIMA利用規約
-      %li ポイントに関する特約
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")会社概要（運営会社）
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")プライバシーポリシー
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")FURIMA利用規約
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")ポイントに関する特約
     .ul.footer__contents__list
       %h2.footer__contents__list__top FURIMAを見る
-      %li カテゴリー一覧
-      %li ブランド一覧
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")カテゴリー一覧
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")ブランド一覧
     .ul.footer__contents__list
       %h2.footer__contents__list__top ヘルプ＆ガイド
-      %li FURIMAガイド
-      %li FURIMAロゴ利用ガイドライン
-      %li お知らせ
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")FURIMAガイド
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")FURIMAロゴ利用ガイドライン
+
+      %li
+        %a(href="/" class="footer__contents__list__top" placeholder="")お知らせ
 
   .footer__logo
     %a(href="/")
       = image_tag 'logo-white.png', alt: '', height: '40px', width: '140px', class: 'footer__logo__icon'
   %p © FURIMA
-.btn
   .btn__icon
     %span.btn__icon__text 出品する
     %a(href="/")

@@ -14,19 +14,17 @@
       display: flex;
       align-items: center;
       &__logo{
-        padding-bottom: 10px;
         margin-right: 30px;
         border-radius: 4px;
       }
       &__search{
         width: 100%;
         margin-left: auto;
-        margin-bottom: 10px;
         height: 35px;
       }
       &__btn{
         width: 36px;
-        padding: 6px;
+        padding: 4px;
         background-color: #3CCACE;
         float: right;
         border: gray solid 0;
@@ -36,7 +34,6 @@
             width: 100%;
             vertical-align: bottom;
           }
-          position: absolute;
           color: darkgray;
         }
       }
@@ -44,6 +41,8 @@
   
     &__nav{
       display: flex;
+      padding-top: 10px;
+      padding-bottom: 15px;
       margin-bottom: 10px;
       font-size: 14px;
       list-style: none;
@@ -98,6 +97,9 @@
         margin: 24px 0 0 0;
         &__app{
           margin-right: 10px;
+          img:hover{
+            opacity: 0.5;
+          }
         }
       }
     }
@@ -189,6 +191,9 @@
         display: flex;
         &__app{
           margin-right: 10px;
+          img:hover{
+            opacity: 0.5;
+          }
         }
       }
     }
@@ -295,6 +300,9 @@
       margin: 20px auto 0;
       &__app{
         margin-right: 10px;
+        img:hover{
+          opacity: 0.5;
+        }
       }
     }
   }
@@ -324,6 +332,12 @@
       text-decoration: none;
       font-size: 12px;
       line-height: 32px;
+      a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 12px;
+        font-weight: lighter;
+      }
       }
     }
   }
