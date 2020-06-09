@@ -1,40 +1,36 @@
-.footer
-  %ul.contents
-    %li.content
-      %h2.content__title FURIMAについて
-      %ul.content__title__text
-        %li
-          %a 会社概要（運営会社）
-      %ul.content__title__text
-        %li
-          %a プライバシーポリシー
-      %ul.content__title__text
-        %li
-          %a FURIMA利用規約
-      %ul.content__title__text
-        %li
-          %a ポイントに関する特約
-    %li.content
-      %h2.content__title FURIMAを見る
-      %ul.content__title__text
-        %li
-          %a カテゴリー一覧
-      %ul.content__title__text
-        %li
-          %a ブランド一覧
-      %ul.content__title__text
-        %li
-          %a FURIMA利用規約
-    %li.content
-      %h2.content__title ヘルプ＆ガイド
-      %ul.content__title__text
-        %li
-          %a FURIMAガイド
-      %ul.content__title__text
-        %li
-          %a FURIMAロゴ利用ガイドライン
-      %ul.content__title__text
-        %li
-          %a お知らせ
-  .footer__logo
-    %a @FURIMA
+.i__footer
+  .i__footer__contents
+    .ul.i__footer__contents__list
+      %h2.i__footer__contents__list__top FURIMAについて
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")会社概要（運営会社）
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")プライバシーポリシー
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")FURIMA利用規約
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")ポイントに関する特約
+    .ul.i__footer__contents__list
+      %h2.i__footer__contents__list__top FURIMAを見る
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")カテゴリー一覧
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")ブランド一覧
+    .ul.i__footer__contents__list
+      %h2.i__footer__contents__list__top ヘルプ＆ガイド
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")FURIMAガイド
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")FURIMAロゴ利用ガイドライン
+
+      %li
+        %a(href="/" class="i__footer__contents__list__top" placeholder="")お知らせ
+
+  .i__footer__logo
+    %a(href="/")
+      = image_tag 'logo-white.png', alt: '', height: '40px', width: '140px', class: 'footer__logo__icon'
+  %p © FURIMA
+  .i__btn__icon
+    %span.i__btn__icon__text 出品する
+    %a(href="/")
+      = image_tag 'icon_camera.png', alt: '' , height: '55px', width: '55px', class: ''

@@ -1,17 +1,18 @@
-.k__main
-  .k__head__bar
-    .k__head__bar__box
-      .k__head__bar__box-logo
+.i__header
+  .i__header__inner
+    .i__header__inner__main
+      .i__header__inner__main__logo
         %a(href="/")
           = image_tag 'logo.png', alt: '', height: '40px', width: '140px', class: 'img-logo'
-      %input.k__head__bar__box-text-box{:name => "search", :placeholder => "キーワードから探す", :type => "search", :value => ""}/
-      .k__head__bar__box-text-box-btn(type="submit")
+      %input.i__header__inner__main__search{name: "search", placeholder: "キーワードから探す", type: "search", value: ""}/ 
+      .i__header__inner__main__btn(type="submit")
         %a(href="/")
-          = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 't__head__bar__box-text-box-btn-icon'
-    .k__head__bar__search
-      %ul.k__head__bar__search__box
-        %li.k__head__bar__search__box-categry カテゴリー
-        %li.k__head__bar__search__box-brand ブランド
-      %ul.k__head__bar__search__select
-        %li.k__head__bar__search__select-login ログイン
-        %li.k__head__bar__search__select-new 新規会員登録
+          = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 'header__inner__main__btn__icon'
+
+    .i__header__inner__nav
+      .ul.i__header__inner__nav__left
+        %li.i__header__inner__nav__left__first カテゴリー
+        %li.i__header__inner__nav__left__second ブランド
+      .ul.i__header__inner__nav__right
+        %li.i__header__inner__nav__right__first ログイン
+        %li.i__header__inner__nav__right__second 新規会員登録
