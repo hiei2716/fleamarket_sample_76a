@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "users/logout" => "users#logout"
   get "credit_cards/new" => "credit_cards#new"
   resources :purchase, only: [:index]
+  resources :items, only: [:index, :new]
 end
