@@ -10,12 +10,12 @@
           = f.label "ニックネーム"
           %span.require 必須
           %br/ 
-          = f.text_field :email, autofocus: true, autocomplete: "nickname", class: "input-default", placeholder: "例 はたさん" 
+          = f.text_field :email, autofocus: true, autocomplete: "nickname", class: "r__input-default", placeholder: "例 はたさん" 
         .field
           = f.label "Eメールアドレス"
           %span.require 必須
           %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "Eメールアドレスを入力してください"
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "r__input-default", placeholder: "Eメールアドレスを入力してください"
         .field
           = f.label "パスワード"
           %span.require 必須
@@ -23,7 +23,7 @@
             %em
               (7文字以上)
           %br/
-          = f.password_field :password, autocomplete: "new-password", class: "input-default", placeholder: "7文字以上で入力"
+          = f.password_field :password, autocomplete: "new-password", class: "r__input-default", placeholder: "7文字以上で入力"
         .field
           = f.label "パスワード（確認）"
           %span.require 必須
@@ -31,7 +31,7 @@
             %em
               (同じ文字7文字以上)
           %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: "input-default", placeholder: "7文字以上で入力"
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: "r__input-default", placeholder: "7文字以上で入力"
 
         -# お名前欄について仮置のためカラムをemailで統一
         .field
@@ -39,8 +39,8 @@
             = f.label "お名前"
             %span.require 必須
             %br/
-          = f.text_field :email, autofocus: true, autocomplete: "family_name", class: "input-default harf", placeholder: "姓"
-          = f.text_field :email, autofocus: true, autocomplete: "first_name", class: "input-default harf", placeholder: "名"
+          = f.text_field :email, autofocus: true, autocomplete: "family_name", class: "r__input-default harf", placeholder: "姓"
+          = f.text_field :email, autofocus: true, autocomplete: "first_name", class: "r__input-default harf", placeholder: "名"
 
         -# 生年月日欄について仮置のためカラムをemailで統一
         .field
@@ -177,7 +177,7 @@
           = f.label "電話番号"
           %span.require　必須
           %br/
-          = f.text_field :email, autofocus: true, autocomplete: "number", class: "input-default", placeholder: "ハイフン無し 数字のみ入力"
+          = f.text_field :email, autofocus: true, autocomplete: "number", class: "r__input-default", placeholder: "ハイフン無し 数字のみ入力"
 
         -# 性別欄について仮置のためカラムをemailで統一
         .field
@@ -192,4 +192,4 @@
           未選択
 
       .actions
-        = f.submit "住所登録画面へ", class: "next-btn"
+        = f.submit "住所登録画面へ", class: "r__next-btn"
