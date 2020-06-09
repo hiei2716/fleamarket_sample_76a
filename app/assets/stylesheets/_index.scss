@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-.header{
+.i__header{
   padding: 0 60px;
   &__inner{
     width: 100%;
@@ -63,7 +63,7 @@
     }
   }  
 }
-.main{
+.i__main{
   &__visual{
     height: 560px;
     background-image: url(bg-mainVisual-pict_pc.jpg);
@@ -272,7 +272,7 @@
     }
   }
 }
-.banner{
+.i__banner{
   &__visual{
     background-image: url(bg-appBanner-pict.jpg);
     padding: 100px 40px;
@@ -307,7 +307,7 @@
     }
   }
 }
-.footer{
+.i__footer{
   background-color: #272727;
   color: #fff;
   padding: 60px 0;
@@ -345,7 +345,7 @@
     font-size: 14px;
   }
 }
-.btn{
+.i__btn{
   text-decoration: none;
   color: inherit;
   &__icon{
