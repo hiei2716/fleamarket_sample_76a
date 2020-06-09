@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'items#index'
-  resources :purchase, only: [:index]
+  resources :items, only: [:index, :new]
 end
