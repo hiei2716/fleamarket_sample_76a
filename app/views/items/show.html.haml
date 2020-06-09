@@ -1,5 +1,5 @@
 .k-header
-  = render partial: 'layouts/header', locals: { header: @header }
+  = render partial: 'layouts/header'
 
 .k__main
   .k__showMain
@@ -80,13 +80,15 @@
               test
             .k__commentBox__list__content__date
               2020-06-09 12:00:00 +0900
-        =form_for [@item, @comment] do |f|
-          = f.text_area :text
-        .k__noticeMsg
-          %p
-            相手のことを考え丁寧なコメントを心がけましょう。
-            %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %br
+
+        .form
+          %input.k__comment{type: "text"}
+          .k__noticeMsg
+            %p
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %br
+          %input.k__commentBtn{type: "submit", value: "コメントする"}
     .k__links
       %ur
         %li
@@ -95,4 +97,4 @@
           次の商品>
 
 .k-footer
-  = render partial: 'layouts/footer', locals: { footer: @footer }
+  = render partial: 'layouts/footer'
