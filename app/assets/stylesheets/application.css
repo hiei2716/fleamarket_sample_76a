@@ -17,3 +17,4 @@
  @import 'item_show.scss';
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import "posts.scss";
