@@ -72,4 +72,6 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'active_hash'
+gem 'ancestry'
 gem 'haml-rails'
