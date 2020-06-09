@@ -9,19 +9,9 @@
         %a(href="/")
           = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 't__head__bar__box-text-box-btn-icon'
     .k__head__bar__search
-      .k__head__bar__search__box
-        %a(id="categoryBtn" href="/")
-          = render 'layouts/category'
-        %a(id="brandBtn" href="/")
-          .k__head__bar__search__box-brandブランド
-      .k__head__bar__search__select
-        -if user_signed_in?
-          = link_to users_path(current_user),id: "logBtn" do
-            .k__head__bar__search__select-login マイページ
-          = link_to destroy_user_session_path, method: :delete, id: "newBtn" do
-            .k__head__bar__search__select-login ログアウト
-        -else
-          = link_to new_user_session_path,id: "logBtn" do
-            .k__head__bar__search__select-login ログイン
-          = link_to new_user_registration_path,id: "newBtn" do
-            .k__head__bar__search__select-login 新規会員登録
+      %ul.k__head__bar__search__box
+        %li.k__head__bar__search__box-categry カテゴリー
+        %li.k__head__bar__search__box-brand ブランド
+      %ul.k__head__bar__search__select
+        %li.k__head__bar__search__select-login ログイン
+        %li.k__head__bar__search__select-new 新規会員登録
