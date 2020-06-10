@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_one :address
+    has_one :address
+    has_many :items
 
   # バリデーション
   validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :phone_number, :gender, :password_confirmation,  presence: true

@@ -7,12 +7,11 @@
     = form_for(@user, url: registration_path(resource_name)) do |f|
       .r__new-registration__contents
         .r__new-registration__contents__box
-          -# ニックネーム欄について仮置のためカラムをemailで統一
           .field
             = f.label "ニックネーム"
             %span.require 必須
             %br/ 
-            = f.text_field :email, autofocus: true, autocomplete: "nickname", class: "r__input-default", placeholder: "例 はたさん" 
+            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "r__input-default", placeholder: "例 はたさん" 
           .field
             = f.label "Eメールアドレス"
             %span.require 必須
@@ -41,16 +40,16 @@
             %span.require 必須
             %br/
             .field-half
-              = f.text_field :email, autofocus: true, autocomplete: "family_name", class: "r__input-default-half", placeholder: "姓"
-              = f.text_field :email, autofocus: true, autocomplete: "first_name", class: "r__input-default-half", placeholder: "名"
+              = f.text_field :family_name, autofocus: true, autocomplete: "family_name", class: "r__input-default-half", placeholder: "姓"
+              = f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "r__input-default-half", placeholder: "名"
           -# お名前カナ欄について仮置のためカラムをemailで統一
           .field
             = f.label "お名前カナ"
             %span.require 必須
             %br/
             .field-half
-              = f.text_field :email, autofocus: true, autocomplete: "family_name", class: "r__input-default-half", placeholder: "セイ"
-              = f.text_field :email, autofocus: true, autocomplete: "first_name", class: "r__input-default-half", placeholder: "メイ"
+              = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name", class: "r__input-default-half", placeholder: "セイ"
+              = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name", class: "r__input-default-half", placeholder: "メイ"
 
           -# 生年月日欄について仮置のためカラムをemailで統一
           .field
@@ -60,7 +59,7 @@
             %br/
             .field-birthday
               .field-birthday-box
-                = f.select :email,:type => "text", class: "r__input-default-birthday", placeholder:"" do
+                = f.select :year,:type => "text", class: "r__input-default-birthday", placeholder:"" do
                   %option{:value => ''} --
                   %option{:value => '2020'} 2020
                   %option{:value => '2019'} 2019
@@ -135,7 +134,7 @@
                   %option{:value => '1950'} 1950
                 年
               .field-birthday-box
-                = f.select :email, :type =>"text", class: "r__input-default-birthday", placeholder:"" do
+                = f.select :month, :type =>"text", class: "r__input-default-birthday", placeholder:"" do
                   %option{:value => ''} --
                   %option{:value => '1'} 1
                   %option{:value => '2'} 2
@@ -151,7 +150,7 @@
                   %option{:value => '12'} 12
                 月
               .field-birthday-box
-                = f.select :email, :type => "text", class: "r__input-default-birthday", placeholder:""do
+                = f.select :day, :type => "text", class: "r__input-default-birthday", placeholder:""do
                   %option{:value => ''} --
                   %option{:value => '1'} 1
                   %option{:value => '2'} 2
@@ -191,18 +190,18 @@
             = f.label "電話番号"
             %span.require 必須
             %br/
-            = f.text_field :email, autofocus: true, autocomplete: "number", class: "r__input-default", placeholder: "ハイフン無し 数字のみ入力"
+            = f.text_field :phone_number, autofocus: true, autocomplete: "number", class: "r__input-default", placeholder: "ハイフン無し 数字のみ入力"
 
           -# 性別欄について仮置のためカラムをemailで統一
           .field
             = f.label "性別"
             %span.require 必須
             %br/
-            = f.radio_button :email, 1
+            = f.radio_button :gender, 1
             男性
-            = f.radio_button :email, 2
+            = f.radio_button :gender, 2
             女性
-            = f.radio_button :email, 3
+            = f.radio_button :gender, 3
             未選択
           .actions
             = f.submit "住所登録画面へ", class: "r__next-btn"

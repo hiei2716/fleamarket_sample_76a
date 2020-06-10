@@ -28,7 +28,7 @@
             = f.label "都道府県"
             %span.require 必須
             %br/
-            -# = f.collection_select :city, Prefecture.all, :id, :name, {}, {class: "select-box"}
+            = f.collection_select :city, Prefecture.all, :id, :name, {}, {class: "select-box"}
           .field
             = f.label "市町村"
             %span.require 必須

@@ -13,9 +13,22 @@
       .ul.i__header__inner__nav__left
         %li.i__header__inner__nav__left__first カテゴリー
         %li.i__header__inner__nav__left__second ブランド
+        
       .ul.i__header__inner__nav__right
-        %li.i__header__inner__nav__right__first ログイン
-        %li.i__header__inner__nav__right__second 新規会員登録
+        -if user_signed_in?
+          = link_to users_path(current_user),id: "logBtn" do
+            .t__head__bar__search__select-login マイページ
+          = link_to destroy_user_session_path, method: :delete, id: "newBtn" do
+            .t__head__bar__search__select-login ログアウト
+        -else
+          = link_to new_user_session_path,id: "logBtn" do
+            %li.i__header__inner__nav__right__first ログイン
+          = link_to new_user_registration_path,id: "newBtn" do
+            %li.i__header__inner__nav__right__second 新規会員登録
+
+
+       
+
 
 .i__main
   .i__main__visual
