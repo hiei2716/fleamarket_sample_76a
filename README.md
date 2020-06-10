@@ -20,7 +20,7 @@
 |user_image|string|
 
 ### Association
-- has_many :addresses
+- has_one :addresses
 - has_many :items
 - has_many :comments
 - has_one :credit_card, dependent: :destroy

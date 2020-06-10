@@ -1,0 +1,53 @@
+.r-single
+  %header.r-header
+  %main.r-single-main
+    %section.r-single-container
+      %h2 住所登録
+      = form_with do |f|
+        .r-single-content 
+          .field
+            %div
+              = f.label "お名前"
+              %span.require 必須
+              %br/
+            = f.text_field :email, autofocus: true, autocomplete: "family_name",class: "input-default harf",placeholder: "付利魔(全角大字)"
+            = f.text_field :first_name, autofocus: true, autocomplete: "first_name",class: "input-default harf",placeholder: "太郎(全角大字)"
+          .field
+            %div
+              = f.label "お名前カナ"
+              %span.require 必須
+              %br/
+            = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana",class: "input-default harf",placeholder: "フリマ(全角カナ)"
+            = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",class: "input-default harf",placeholder: "例 タロウ(全角カナ)"
+          .field
+            = f.label "郵便番号"
+            %span.require 必須
+            %br/
+            = f.text_field :postal_code, autofocus: true, autocomplete: "postal_code",class: "input-default",placeholder: "ハイフン無し、半角の数字7文字入力"
+          .field
+            = f.label "都道府県"
+            %span.require 必須
+            %br/
+            -# = f.collection_select :city, Prefecture.all, :id, :name, {}, {class: "select-box"}
+          .field
+            = f.label "市町村"
+            %span.require 必須
+            %br/
+            = f.text_field :local, autofocus: true, autocomplete: "local",class: "input-default",placeholder: "例 横浜市緑区"
+          .field
+            = f.label "番地"
+            %span.require 必須
+            %br/
+            = f.text_field :block, autofocus: true, autocomplete: "block",class: "input-default",placeholder: "例 青山1-1-1"
+          .field
+            = f.label "マンション名"
+            %span.any 任意
+            %br/
+            = f.text_field :building, autofocus: true, autocomplete: "building",class: "input-default",placeholder: "例 柳ビル103"
+          .field
+            = f.label "連絡先"
+            %span.any 任意
+            %br/
+            = f.text_field :number, autofocus: true, autocomplete: "number",class: "input-default",placeholder: "ハイフン無し 数字のみ入力"
+          .actions
+            = f.submit "登録",class: "next-btn"
