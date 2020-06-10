@@ -1,7 +1,10 @@
 @import "reset";
-@import "index";
+@import 'item_show';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import "posts";
 @import "confirmation";
+@import 'item_new';
+@import "registrations_new";
+@import "index";
 @import "login";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "registrations_new"

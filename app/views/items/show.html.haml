@@ -1,0 +1,100 @@
+.k-header
+  = render partial: 'layouts/header'
+
+.k__main
+  .k__showMain
+    .k__content
+      .k__itemBox
+        .k__itemBox__name
+          白Tシャツ
+        .k__itemBox__body
+          %ul
+            %li
+              写真
+        .k__itemBox__price
+          ¥ 750
+          .k__itemBox__price-detail
+            %span (税込)
+            %span 送料込み
+        .k__itemDetail
+          .noticeMsg
+            シンプルです
+        .k__table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td.k__table--blue
+                  イシワ
+              %tr
+                %th カテゴリー
+                %td.k__table--blue
+                  Tシャツ
+              %tr
+                %th ブランド
+                %td
+                  ノーブランド
+              %tr
+                %th 商品のサイズ
+                %td
+                  L
+              %tr
+                %th 商品の状態
+                %td
+                  普通
+              %tr
+                %th 配送料の負担
+                %td
+                  送料込み(出品者負担)
+              %tr
+                %th 発送元の地域
+                %td
+                  東京都
+              %tr
+                %th 発送日の目安
+                %td
+                  1日〜２日で発送
+        .k__optonalArea
+          %ul
+            %li.k__optinalBtn.k__likeBtn
+              =icon('fa','star')
+              お気に入り 0
+          %ul.k__optional
+            %li.k__optionalBtn
+              =icon('fa','flag')
+              不適切な商品の通報
+
+      .k__itemChangeBox
+        %ul.k__itemChangeBox__btnList
+          %button.k__itemChangeBox__btnList__buyBtn
+            購入画面に進む
+
+      .k__commentBox
+        .k__commentBox__list
+          .k__commentBox__list__icon
+            =icon('fa','user')
+          .k__commentBox__list__content
+            .k__commentBox__list__content__name
+              バイヤーテスト
+            .k__commentBox__list__content__message
+              test
+            .k__commentBox__list__content__date
+              2020-06-09 12:00:00 +0900
+
+        .form
+          %input.k__comment{type: "text"}
+          .k__noticeMsg
+            %p
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %br
+          %input.k__commentBtn{type: "submit", value: "コメントする"}
+    .k__links
+      %ur
+        %li
+          <前の商品
+        %li
+          次の商品>
+
+.k-footer
+  = render partial: 'layouts/footer'

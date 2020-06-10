@@ -1,6 +1,8 @@
 class Address < ApplicationRecord
   # アソシエーション
   belongs_to :user, optional: true
+  belongs_to_active_hash :prefecture
+  
   # バリデーション
   validates :family_name, :first_name , :family_name_kana, :first_name_kana, :postal_code, :city, :local, :block,  presence: true
 
@@ -12,4 +14,6 @@ class Address < ApplicationRecord
 
   # 文字数制限
   validates :postal_code, length: {in: 7..7}
+  extend ActiveHash::Associations::ActiveRecordExtensions
+
 end
