@@ -3,10 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         has_one :address
+  
+  has_one :address
 
   # バリデーション
-  validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :year, :month, :day, :number, :gender, :password_confirmation,  presence: true
+  validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :phone_number, :gender, :password_confirmation,  presence: true
 
   # 文字の形式制限
   validates :family_name, :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/,

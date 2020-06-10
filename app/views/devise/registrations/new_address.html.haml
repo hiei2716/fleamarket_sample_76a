@@ -3,14 +3,14 @@
   %main.r-single-main
     %section.r-single-container
       %h2 住所登録
-      = form_with do |f|
+      = form_for @address do |f|
         .r-single-content 
           .field
             %div
               = f.label "お名前"
               %span.require 必須
               %br/
-            = f.text_field :email, autofocus: true, autocomplete: "family_name",class: "input-default harf",placeholder: "付利魔(全角大字)"
+            = f.text_field :family_name, autofocus: true, autocomplete: "family_name",class: "input-default harf",placeholder: "付利魔(全角大字)"
             = f.text_field :first_name, autofocus: true, autocomplete: "first_name",class: "input-default harf",placeholder: "太郎(全角大字)"
           .field
             %div
@@ -48,6 +48,6 @@
             = f.label "連絡先"
             %span.any 任意
             %br/
-            = f.text_field :number, autofocus: true, autocomplete: "number",class: "input-default",placeholder: "ハイフン無し 数字のみ入力"
+            = f.text_field :phone_number, autofocus: true, autocomplete: "number",class: "input-default",placeholder: "ハイフン無し 数字のみ入力"
           .actions
             = f.submit "登録",class: "next-btn"
