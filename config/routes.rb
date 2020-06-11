@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :credit_cards, only: [:new]
   resources :purchase, only: [:index]
   resources :items, only: [:index, :new, :show]
+  resources :images, only: [:index, :new, :show]
 end

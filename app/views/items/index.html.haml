@@ -105,7 +105,11 @@
       .i__main__items__lists__head 新規投稿商品
       .i__main__items__lists__items
         .i__main__items__lists__items__item
-          = image_tag 'a007.png', alt: '' , width: '100%', class: ''
+          - @items.each do |item|
+            = item.name
+            = item.price
+          - @images.each do |image|
+            = image.src
         .i__main__items__lists__items__item
           = image_tag 'a007.png', alt: '' , width: '100%', class: ''
         .i__main__items__lists__items__item
