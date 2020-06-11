@@ -4,6 +4,8 @@
       = link_to image_tag('logo.png', width: '170', height: '60'), root_path
 
     .r__form__container
+      .r__title__container
+        %p.message-title 商品の情報を入力
       .r__image__container
         %p.message 商品出品画像（必須）
         %p.message 最大5枚までアップロード出来ます
@@ -80,7 +82,7 @@
             %input(type="number" placeholder = "最低価格 ¥300" class= "price-box")
       .r__submit__container
         .button
-          %input(type="submit" name="exhibition" value="出品する" class="exhibition")
+          %input(type="submit" name="exhibition" value="変更する" class="exhibition")
         .back
           = link_to "もどる", "#"
       .r__attention__container
