@@ -51,9 +51,16 @@
             }
           }
         }
+        .hidden-content {
+          .hidden-field {
+            display: none;
+          }
+          .hidden-checkbox {
+            display: none;
+          }
+        }
+      }
     }
-  }
-
     .t__item__container {
       margin-top: 30px;
       padding-bottom: 50px;
