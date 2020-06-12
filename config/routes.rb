@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
+  
   root 'items#index'
   get 'users/sign_up', to: 'registrations#new'
   
