@@ -10,16 +10,17 @@
             %p.message 商品出品画像（必須）
             %p.message 最大5枚までアップロード出来ます
             .post__drop__box__container
+              .prev-content
               .label-content
                 %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
                   %pre.label-box__text-visible クリックしてファイルをアップロード
-                .hidden-content
-                  = f.fields_for :images do |i|
-                    = i.file_field :src, class: "hidden-field"
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][src]", id: "item_images_attributes_4_src" }
+              .hidden-content
+                = f.fields_for :images do |i|
+                  = i.file_field :src, class: "hidden-field"
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][src]", id: "item_images_attributes_4_src" }
           .t__item__container
             %p.message 商品名（必須）
             = f.text_field :name, class: "name-box",  placeholder: "商品名（必須 40文字まで)"
@@ -43,9 +44,9 @@
               %option(value="ticket") チケット
               %option(value="bike") 自転車・オートバイ
             %p.message ブランド名（任意）
-            = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "ノーブランド"}, {class: "select-box"}
+            = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "選択してください"}, {class: "select-box"}
             %p.message 商品の状態（必須）
-            = f.collection_select :condition_id, Condition.all, :id, :name, {}, {class: "select-box"}
+            = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: "select-box"}
           .t__post__container
             %p.message 配送について
             %p.message 配送料の負担（必須）
