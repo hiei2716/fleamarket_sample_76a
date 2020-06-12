@@ -1,16 +1,16 @@
 = link_to item_path(item.id) do
-  .e__middle__container__border
-    .e__middle__container__border__content
-      .e__middle__container__border__content__image
+  .i__middle__container__border
+    .i__middle__container__border__content
+      .i__middle__container__border__content__image
         = image_tag item.images[0].src, width: '200px'
         -if item.buyer_id.present?
-          .e__middle__container__border__content__image--triangle
-          .e__middle__container__border__content__image__soldout
+          .i__middle__container__border__content__image--triangle
+          .i__middle__container__border__content__image__soldout
             SOLD
-      .e__middle__container__border__content__info
-        .e__middle__container__border__content__info__name
+      .i__middle__container__border__content__info
+        .i__middle__container__border__content__info__name
           = item.name
-        .e__middle__container__border__content__info__price
+        .i__middle__container__border__content__info__price
           ¥
           = item.price
           =icon('far','heart') do

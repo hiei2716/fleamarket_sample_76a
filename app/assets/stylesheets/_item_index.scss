@@ -1,4 +1,4 @@
-.e__center{
+.i__center{
   width: 100%;
   height: 400px;
   background-color: white;
@@ -28,7 +28,7 @@
         text-shadow:0 0 5px rgba(0,0,0,0.4);
         font-size: 18px;
       }
-      .e__center__image__content-icon-google{
+      .i__center__image__content-icon-google{
         width: 180px;
         padding: 0;
         #gBtn{
@@ -43,7 +43,7 @@
     }
   }
 }
-.e__middle {
+.i__middle {
   height: 100%;
   width: 100%;
   background-color: #f8f8f8;
@@ -63,7 +63,8 @@
     flex-wrap: wrap;
     
     &__border {
-      margin-right: 20px;
+      margin-right: 25px;
+      margin-left: 25px;
       &__content {
         background-color: #ffffff;
         height: 330px;
@@ -99,6 +100,8 @@
           &__name {
             word-break: break-all;
             height: 48px;
+            font-weight: 600;
+            color: #333;
           }
           &__price {
             word-break: break-all;

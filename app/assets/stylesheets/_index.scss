@@ -260,10 +260,11 @@
         color: #3CCACE;
       }
       &__items{
-        width: 780px;
+        width: 1000px;
         margin: 26px auto;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
+        flex-wrap: wrap;
       }
       &__more {
         float: right;
