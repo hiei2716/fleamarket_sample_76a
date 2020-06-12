@@ -15,5 +15,6 @@ class ItemsController < ApplicationController
   def update  #事前に商品情報更新用アクションを定義
     # item = Item.find(params[:id])
     # item.update(item_params)
+    # redirect_to item_path(item.id)
   end
 end
