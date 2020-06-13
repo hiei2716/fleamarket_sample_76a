@@ -72,8 +72,9 @@ group :production do
   gem 'unicorn'
 end
 
+gem "font-awesome-sass"
 gem 'active_hash'
 gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
-gem 'font-awesome-sass', '~> 5.4.1'
+gem 'pry-rails'
