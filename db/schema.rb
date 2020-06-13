@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_033653) do
+ActiveRecord::Schema.define(version: 2020_06_10_032405) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_033653) do
     t.string "building"
     t.integer "phone_number"
     t.bigint "user_id", null: false
-    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city"], name: "index_addresses_on_city"
@@ -56,9 +55,9 @@ ActiveRecord::Schema.define(version: 2020_06_10_033653) do
     t.string "name", null: false
     t.text "description", null: false
     t.string "size"
-    t.integer "category_id", null: false
-    t.integer "user_id", null: false
-    t.integer "brand_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "brand_id", null: false
     t.string "condition", null: false
     t.integer "postage", null: false
     t.integer "prefecture", null: false
@@ -67,6 +66,9 @@ ActiveRecord::Schema.define(version: 2020_06_10_033653) do
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,9 +80,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_033653) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "year", null: false
-    t.integer "month", null: false
-    t.integer "day", null: false
+    t.date "birth_date", null: false
     t.string "phone_number", null: false
     t.integer "gender", null: false
     t.text "introduction"
@@ -96,4 +96,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_033653) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
 end

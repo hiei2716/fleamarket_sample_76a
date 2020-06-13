@@ -26,7 +26,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
-      binding.pry
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
@@ -72,11 +71,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :phone_number, :gender, :year, :month, :day, ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :phone_number, :gender, :birth_date])
   end
 
   def address_params
-    params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :prefecture_id, :city, :local, :block, :building, :phone_number)
+    params.require(:address).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :city, :local, :block, :building, :phone_number)
   end
 
   def update_resource(resource, params)
