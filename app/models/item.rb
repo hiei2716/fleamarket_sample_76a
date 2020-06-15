@@ -1,9 +1,8 @@
 class Item < ApplicationRecord
-  has_many :users,  optional: true
-  has_many :images, dependent: :destroy
-  belongs_to :category
+  belongs_to :user
+  has_many :comments
+  has_many :images
   belongs_to :brand
   belongs_to :category
-
-  
+  has_many :images, dependent: :destroy
 end

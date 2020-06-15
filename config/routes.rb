@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   
-  root 'items#index'
+  root 'items#top'
   get 'users/sign_up', to: 'registrations#new'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :credit_cards, only: [:new]
   resources :purchase, only: [:index]
   resources :items, only: [:index, :new, :show]
+  resources :images, only: [:index, :new, :show]
 end
 
 
