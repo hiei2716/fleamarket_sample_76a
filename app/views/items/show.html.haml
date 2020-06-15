@@ -6,42 +6,49 @@
     .k__content
       .k__itemBox
         .k__itemBox__name
-          白Tシャツ
+          = @item.name
         .k__itemBox__body
           %ul
             %li
-              写真
+              = image_tag 'a007.png', alt: '' , class: 'firstImage'
+              %ul
+                %li
+                  = image_tag 'a007.png', alt: '', class: 'firstImage'
+                  
         .k__itemBox__price
-          ¥ 750
+          ¥ 
+          =@item.price
           .k__itemBox__price-detail
             %span (税込)
             %span 送料込み
         .k__itemDetail
           .noticeMsg
-            シンプルです
+            = simple_format @item.description
         .k__table
           %table
             %tbody
               %tr
                 %th 出品者
                 %td.k__table--blue
-                  イシワ
+
+                  = link_to @item.user.nickname
+
               %tr
                 %th カテゴリー
                 %td.k__table--blue
-                  Tシャツ
+                  =@item.category.name
               %tr
                 %th ブランド
                 %td
-                  ノーブランド
+                  =@item.brand.name
               %tr
                 %th 商品のサイズ
                 %td
-                  L
+                  =@item.size
               %tr
                 %th 商品の状態
                 %td
-                  普通
+                  =@item.condition
               %tr
                 %th 配送料の負担
                 %td
@@ -94,7 +101,7 @@
         %li
           <前の商品
         %li
-          次の商品>
+          後ろの商品>
 
 .k-footer
   = render partial: 'layouts/footer'

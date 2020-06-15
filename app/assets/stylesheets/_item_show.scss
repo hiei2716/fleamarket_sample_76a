@@ -21,6 +21,9 @@
   
   &__body {
     margin: 16px 0 0;
+    .firstImage {      
+      position: relative;
+    }
     ul {
       display: flex;
       position: relative;
@@ -30,6 +33,24 @@
         align-items: center;
         margin: 0 auto;
         flex-direction: column;
+        img {
+          width: 100%;
+          object-fit: cover;
+          height: 346px;
+        }
+        ul {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+          li {
+            width: 75%;
+            margin: 0 10px 0 0;
+            img {
+              object-fit: cover;
+              height: 87px;
+            }
+          }
+        }
       }
     }
   }
