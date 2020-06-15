@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.order('created_at DESC').limit(8)
-    @images = Image.all
   end
   
   def new
@@ -15,6 +14,6 @@ class ItemsController < ApplicationController
 
   def top
     @items = Item.includes(:images).order('created_at DESC').limit(4)
-    @categories = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(3)
+    @items_category = Item.where(category_id: [1...200]).includes(:images).order('created_at DESC').limit(3)
   end
 end
