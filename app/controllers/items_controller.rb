@@ -9,10 +9,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to items_path, notice: "出品しました"
     else
-      redirect_to new_item_path, notice: "出品できません。入力必須項目を確認してください"
+      redirect_to new_item_path, alert: "出品できません。入力必須項目を確認してください"
     end
   end
 
