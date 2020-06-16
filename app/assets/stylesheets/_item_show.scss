@@ -126,6 +126,34 @@
   }
 }
 
+.r__itemManageBox{
+  padding: 24px 40px;
+  text-align: center;
+  background-color: #ffffff;
+  display: flex;
+  height: 148px;
+  align-items: center;
+  &__edit {
+    height: 52px;
+    width: 305px;
+    background-color: #3CCACE;
+    border: 1px solid #3CCACE;
+    color: #fff;
+    font-size: 16px;
+    line-height: 52px;
+  }
+  &__delete{
+    height: 52px;
+    width: 305px;
+    background-color: #3CCACE;
+    border: 1px solid #3CCACE;
+    color: #fff;
+    font-size: 16px;
+    margin-left: 10px;
+    line-height: 52px;
+  }
+}
+
 .k__itemChangeBox {
   padding: 24px 40px 40px;
   text-align: center;
