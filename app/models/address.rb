@@ -14,6 +14,6 @@ class Address < ApplicationRecord
     message: "全角カナのみが使えます" }
 
   # 文字数制限
-  validates :postal_code, length: {in: 7..7}
+  validates :postal_code, length: { is: 7 }
 
 end
