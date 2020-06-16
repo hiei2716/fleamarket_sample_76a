@@ -66,10 +66,10 @@ describe Item do
       expect(item.errors[:images]).to include("can't be blank")
     end
 
-    # it "categoryがない場合は出品できない" do
-    #   item = build(:item, category: "")
-    #   item.valid?
-    #   expect(item.errors[:category]).to include("can't be blank")
+    it "categoryがない場合は出品できない" do
+      item = build(:item, category: nil)
+      item.valid?
+      expect(item.errors[:category]).to include("must exist")
     end
   end
 end
