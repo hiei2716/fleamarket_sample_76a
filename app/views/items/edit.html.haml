@@ -82,13 +82,13 @@
             %input(type="number" placeholder = "最低価格 ¥300" class= "price-box")
       .r__submit__container
         .button
-          %input(type="submit" name="exhibition" value="変更する" class="exhibition")
+          = f.submit "変更する", class: "exhibition"
         .back
-          = link_to "キャンセル", "show" #仮置 本番は商品情報編集ページ遷移前のページに飛ぶ
+          = link_to "キャンセル", item_path #仮置 本番は商品情報編集ページ遷移前のページに飛ぶ
       .r__attention__container
         %p.message 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
     .r__end__logo__container
       .r__end__logo__container__end__logo
         = link_to image_tag('logo.png', :width => '170', :height => '60'), root_path
-        %p ©️FURIMA.inc 
+        %p ©️FURIMA.inc

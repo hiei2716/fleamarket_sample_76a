@@ -63,6 +63,11 @@
             %li.k__optionalBtn
               =icon('fa','flag')
               不適切な商品の通報
+      -# ユーザ制限機能(編集)の仮置 データ登録機能待ち
+      -# - if user_signed_in? && current_user.id == @item.user_id
+      .r__itemManageBox
+        = link_to "編集", edit_item_path, class: "r__itemManageBox__edit" #リンク先は未実装
+        = link_to "削除", "#", method: :delete, class: "r__itemManageBox__delete" #リンク先は未実装
 
       .k__itemChangeBox
         %ul.k__itemChangeBox__btnList
