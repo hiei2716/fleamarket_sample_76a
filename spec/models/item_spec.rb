@@ -9,7 +9,6 @@ describe Item do
     it "任意入力のbrand_idがなくても出品できる" do
       item = build(:item, brand_id: '')
       item.valid?
-      # expect(build(:item, brand_id: '')).to be_valid
     end
 
     it "nameがない場合は出品できない" do
