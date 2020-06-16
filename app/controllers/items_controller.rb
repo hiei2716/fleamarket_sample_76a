@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     @category_children = Category.find(params[:parent_id]).children
+  end
 
   def top
     @items = Item.includes(:images).order('created_at DESC').limit(4)
@@ -47,5 +48,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).premit(:name, :category_id, :price, :explanation, :condition, :shipping_fee, :shipping_day)
   end
-
 end
