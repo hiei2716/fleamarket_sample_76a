@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'items#index'
+  root 'items#top'
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
   
   resources :users, only: [:index] do
     collection do
@@ -18,6 +25,8 @@ Rails.application.routes.draw do
   resources :credit_cards, only: [:new]
   resources :purchase, only: [:index]
   resources :items, only: [:index, :new, :show]
-
   resources :categories, only: :show
+  resources :images, only: [:index, :new, :show]
 end
+
+
