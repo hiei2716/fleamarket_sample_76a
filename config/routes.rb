@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'items#top'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -6,9 +8,6 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  
-  root 'items#top'
-  get 'users/sign_up', to: 'registrations#new'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:index] do

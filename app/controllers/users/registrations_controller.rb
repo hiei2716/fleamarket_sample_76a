@@ -28,9 +28,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    @user.save
-    sign_in(:user, @user)
+    if @user.save
+      sign_in(:user, @user)
+    else
+      flash.now[:alert] = '登録に失敗しました。'
+      redirect_to "/" and return
   end
+end
 
 
   protected
