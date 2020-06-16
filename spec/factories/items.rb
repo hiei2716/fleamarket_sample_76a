@@ -10,7 +10,13 @@ FactoryBot.define do
     wait {"1~2日で発送"}
     price {500}
     buyer_id {nil}
-    after(:build) {|item| item.images << FactoryBot.build(:image)}
+
+    trait :with_image do |item|
+      after(:build) do |item|
+        item.images << build(:image)
+      end
+    end
+    
     association :category
   end
 end

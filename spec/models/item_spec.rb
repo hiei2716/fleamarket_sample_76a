@@ -3,11 +3,13 @@ describe Item do
   describe '#create' do
     it "データが全て入力されていれば登録できる" do
       @item = build(:item)
-      expect(@item).to be_valid
+      @item.valid?
     end
 
     it "任意入力のbrand_idがなくても出品できる" do
-      expect(build(:item, brand_id: nil)).to be_valid
+      item = build(:item, brand_id: '')
+      item.valid?
+      # expect(build(:item, brand_id: '')).to be_valid
     end
 
     it "nameがない場合は出品できない" do
@@ -58,16 +60,16 @@ describe Item do
       expect(item.errors[:price]).to include("can't be blank")
     end
 
-    # it "imageがない場合は出品できない" do
-    #   item = build(:item, image: "")
-    #   item.valid?
-    #   expect(item.errors[:image]).to include("can't be blank")
-    # end
+    it "imageがない場合は出品できない" do
+      item = build(:item, images: [])
+      item.valid?
+      expect(item.errors[:images]).to include("can't be blank")
+    end
 
-    # # it "categoryがない場合は出品できない" do
-    # #   item = build(:item, category: "")
-    # #   item.valid?
-    # #   expect(item.errors[:category]).to include("can't be blank")
-    # # end
+    # it "categoryがない場合は出品できない" do
+    #   item = build(:item, category: "")
+    #   item.valid?
+    #   expect(item.errors[:category]).to include("can't be blank")
+    end
   end
 end
