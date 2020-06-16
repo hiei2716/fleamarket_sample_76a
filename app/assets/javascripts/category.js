@@ -1,80 +1,79 @@
-$(function(){
+$(document).on('turbolinks:load', function(){  
   // カテゴリーセレクトボックスのオプションを作成
-  function categoryOption(category){
-    var optionHtml = `<option value = "${category.id}">${category.name}</option>`;
-    return optionHtml;
+  function appendOption(category){
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
+    return html;
   }
-
+  // 子カテゴリーの表示作成
+  function appendChidrenBox(insertHTML){
+    var childSelectHtml = '';
+    childSelectHtml = `<select class="sell__item-category" id="child_category" name="item[category_id]">
+                            <option value="---" data-category="---">---</option>
+                            ${insertHTML}
+                          <select>`;
+    $('.sell-category-box').append(childSelectHtml);
+  }
+  // 孫カテゴリーの表示作成
+  function appendGrandchidrenBox(insertHTML){
+    var grandchildSelectHtml = '';
+    grandchildSelectHtml = `    <select class="sell__item-category" id="grandchild_category" name="item[category_id]">
+                                  <option value="---" data-category="---">---</option>
+                                  ${insertHTML}
+                                  </select>`;
+    $('.sell-category-box').append(grandchildSelectHtml);
+  }
   // 親カテゴリー選択後のイベント
-  $('#category-select-parent').on('change', function(){
-    console.log("1")
-    let parentCategoryId = $(this).val();
-    if (parentCategoryId == ''){
-      $('#select-children-box').remove();
-      $('#select-grandchildren-box').remove();
-    }else{
-      $.ajax({
-        url: '/items/category_children',
-        type: 'GET',
-        data: { parent_id: parentCategoryId },
-        dataType: 'json'
-      })
-      .done(function(category_children){
-        $('#select-children-box').remove();
-        $('#select-grandchildren-box').remove();
-        let optionHtml = '';
-        category_children.forEach(function(child){
-          optionHtml += categoryOption(child);
-        });
-        $('#error-category').before(`<div class="new-contents__box__select" id="select-children-box">
-                                      <label class="new-contents__box__select__label" for="item_category_id">
-                                        <select class="new-contents__box__select__input" id="category-select-children" required="required" name="item[category_id]">
-                                          <option value="">選択して下さい</option>
-                                          ${optionHtml}
-                                        </select>
-                                      </label>
-                                    </div>`
-        );
-      })
-      .fail(function(){
-        alert('カテゴリー取得に失敗しました');
-      });
-    }
-  });
-
-  // 子カテゴリー選択後のイベント
-  $('.new-contents__box__details').on('change', '#category-select-children', function(){
-    console.log("2")
-    let childrenCategoryId = $(this).val();
-    if (childrenCategoryId == ''){
-      $('#select-grandchildren-box').remove();
-    }else{
-      $.ajax({
-        url: '/items/category_grandchildren',
-        type: 'GET',
-        data: { child_id: childrenCategoryId },
-        dataType: 'json'
-      })
-      .done(function(category_grandchildren){
-        $('#select-grandchildren-box').remove();
-        let optionHtml = '';
-        category_grandchildren.forEach(function(grandchildren){
-          optionHtml += categoryOption(grandchildren);
-        });
-        $('#error-category').before(`<div class="new-contents__box__select" id="select-grandchildren-box">
-                                        <label class="new-contents__box__select__label" for="item_category_id">
-                                        <select class="new-contents__box__select__input" id="category-select-grandchildren" required="required" name="item[category_id]">
-                                          <option value="">選択して下さい</option>
-                                          ${optionHtml}
-                                        </select>
-                                      </label>
-                                    </div>`
-        );
-      })
-      .fail(function(){
-        alert('カテゴリー取得に失敗しました');
-      });
-    }
-  });
-
+  $('#parent_category').on('change', function(){
+    var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
+    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+        $.ajax({
+          url: '/items/get_category_children',
+          type: 'GET',
+          data: { parent_id: parentCategory },
+          dataType: 'json'
+        })
+        .done(function(children){
+          $('#child_category').remove(); //親が変更された時、子以下を削除する
+          $('#grandchild_category').remove();
+          var insertHTML = '';
+          children.forEach(function(child){
+            insertHTML += appendOption(child);
+          });
+          appendChidrenBox(insertHTML);
+        })
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
+      }else{
+        $('#child_category').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+        $('#grandchild_category').remove();
+      }
+    });
+    // 子カテゴリー選択後のイベント
+    $('.sell-category-box').on('change', '#child_category', function(){
+      var child_category_id = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
+      if (child_category_id != "---"){ //子カテゴリーが初期値でないことを確認
+        $.ajax({
+          url: '/items/get_category_grandchildren',
+          type: 'GET',
+          data: { child_id: child_category_id },
+          dataType: 'json'
+        })
+        .done(function(grandchildren){
+          if (grandchildren.length != 0) {
+            $('#grandchild_category').remove(); //子が変更された時、孫以下を削除する
+            var insertHTML = '';
+            grandchildren.forEach(function(grandchild){
+              insertHTML += appendOption(grandchild);
+            });
+            appendGrandchidrenBox(insertHTML);
+          }
+        })
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
+      }else{
+        $('#grandchild_category').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+      }
+    });
 });

@@ -1,67 +1,98 @@
-
 .category__icon{
   color: #3CCACE;
 }
-
-.parent,.child,.grandchild {
-  display: none;
+.categoryBtn {
+  text-decoration: none;
+  color: #434a54;
 }
-
-#category-area {
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-
-  .category-box {
-    position: absolute;
-    height: 670px;
-    background-color: #fff;
-
-    .parent,.child,.grandchild {
-      box-shadow: 1px 1px 4px;
-      height: 100%;
-      background-color: #fff;
-    }
-    .parent-category,.child-category,.grandchild-category {
-      padding: 6px;
-      &:hover {
-        &:hover {
-          background-color: #3CCACE;
-        }
-      }
-    }
+.categoryBtn:hover {
+  background-position: -100% 0;
+  color: #ffa500;
+}
+.item-link{
+  color: #000000;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+  display: block;
+  width: 240px;
+  padding: 3px 8px 3px 5px;
+  border-bottom: 1px solid #f8f8f8;
+  &:hover{
+    background-position: -100% 0;
+    color: #ffa500; 
   }
-
-  &:hover {
-
-    .parent {
-      display: block;
-
-      .parent-category {
-        width: 260px;
-
-        &:hover {
-          .child {
-            width: 260px;
-            display: block;
+}
+.t__header {
+  padding: 0 60px;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__box {
+    margin: 0 auto;
+    height: 100%;
+    min-height: 82px;
+    width: 100%;
+    max-width: 1040px;
+    &__sub {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      line-height: 32px;
+      padding-top: 1px;
+      &__left {
+        display: flex;
+        font-size: 14px;
+        &--category {
+          padding-right: 30px;
+          position: relative;
+          &:hover > .visibleTree{
+            opacity: 1;
+            visibility: visible;
+          }
+          .visibleTree{
+            opacity: 0;
+            visibility: hidden;
             position: absolute;
-            top: 0;
-            left: 259px;
-
-            .child-category {
-              display: block;
-
-              &:hover {
-
-                .grandchild {
-                  width: 260px;
-                  display: block;
-                  position: absolute;
-                  top: 0;
-                  left: 259px;
+            display: flex;
+            top: 100%;
+            z-index: 2;
+            background-color: white;
+            .firstMenu__parents{
+              width: 240px;
+              &__parent{
+              &:hover > .secondMenu__children{
+                opacity: 1;
+                visibility: visible;
+              }
+              }
+              .secondMenu__children{
+                position: absolute;
+                top: 0px;
+                left: 100%;
+                opacity: 0;
+                visibility: hidden;
+                background-color: white;
+                  &__child{
+                  &:hover > .thirdMenu__grandchildren{
+                  opacity: 1;
+                  visibility: visible;
+                  }
+                  }
+                    .thirdMenu__grandchildren{
+                      background-color: white;
+                      position: absolute;
+                      left: 100%;
+                      top: 0px;
+                      opacity: 0;
+                      visibility: hidden;
+                      &__grandchild{
+                        background-color: white;
+                      }
+                    }
                 }
               }
-            }
           }
         }
       }
