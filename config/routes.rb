@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
   resources :credit_cards, only: [:new]
-  resources :purchase, only: [:index]
-  resources :items, only: [:index, :new, :show]
+  resources :purchase, only: [:index] 
+  resources :items, only: [:index, :new, :show] do
+    collection do
+      post 'pay'
+    end
+  end
   resources :images, only: [:index, :new, :show]
 end
