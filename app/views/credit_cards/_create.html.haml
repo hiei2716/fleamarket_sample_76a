@@ -7,7 +7,7 @@
         %label カード番号
         %span.y__form-require 必須
         %br
-        = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "credit_card_number"
+        = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
         %br
         =image_tag "credit.png", class: "credit_cards", height: "35px", width: "245px;"
       .y__credit-form--body--content
@@ -53,5 +53,5 @@
         .y__credit-form--body--content--back 
           %a.y__form-question ?
           %span カード裏面の番号とは?
-        #credit_card_token
+        .credit_card_token
         = submit_tag "追加する", id: "token_submit", class: "y__credit-form--body--content--button"
