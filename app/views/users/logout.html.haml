@@ -1,5 +1,4 @@
--# トップページからヘッダーを持ってくる
--# = render 'top/header'
+= render partial: 'layouts/header'
 
 %main.y__l-container
   .y__l-container-box
@@ -14,5 +13,4 @@
           = form_tag do
             %button.y__btn-green{ type:'submit'} ログアウト
 
--# トップページからフッターを持ってくる
--# = render 'top/footer'
+= render partial: 'layouts/footer'
