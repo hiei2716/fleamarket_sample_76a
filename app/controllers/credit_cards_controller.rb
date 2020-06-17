@@ -6,7 +6,7 @@ class CreditCardsController < ApplicationController
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    credit_card = Credit_Card.where(user_id: 1)
+    credit_card = Credit_Card.where(user_id: 2)
     #redirect_to action: "new" if credit_card.present?
   end
 
@@ -22,7 +22,7 @@ class CreditCardsController < ApplicationController
         card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
         #metadata: {user_id: current_user.id} # 無くてもOK。
       )
-      @credit_card = Credit_Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
+      @credit_card = Credit_Card.new(user_id: 2, customer_id: customer.id, card_id: customer.default_card)
       if @credit_card.save
         redirect_to action: "index"
       else
@@ -31,9 +31,28 @@ class CreditCardsController < ApplicationController
     end
   end
 
+  def show #Cardのデータpayjpに送り情報を取り出します
+    if @credit_card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = "sk_test_f1d2d99808bd87c9b416bd9c"
+      customer = Payjp::Customer.retrieve(@credit_card.customer_id)
+      @default_card_information = customer.cards.retrieve(@credit_card.card_id)
+    end
+  end
+
+  def destroy #PayjpとCardデータベースを削除します
+    unless @credit_card.blank?
+      Payjp.api_key =  "sk_test_f1d2d99808bd87c9b416bd9c"
+      customer = Payjp::Customer.retrieve(@credit_card.customer_id)
+      customer.delete
+      @credit_card.delete
+    end
+  end
+
   private
 
   def set_card
-    @credit_card = Credit_Card.where(params[:id]).first if Credit_Card.where(params[:id]).present?
+    @credit_card = Credit_Card.where(id: 4).first if Credit_Card.where(id: 4).present?
   end
 end
