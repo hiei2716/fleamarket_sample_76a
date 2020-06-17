@@ -11,7 +11,8 @@
 
     .i__header__inner__nav
       %ul.i__header__inner__nav__left
-        %li.i__header__inner__nav__left__first カテゴリー
+        %li.i__header__inner__nav__left__first
+          = render "layouts/category"
         %li.i__header__inner__nav__left__second ブランド
       %ul.i__header__inner__nav__right
         -if user_signed_in?
