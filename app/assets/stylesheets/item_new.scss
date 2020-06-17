@@ -100,21 +100,23 @@
         }
       }
     }
-    .t__item__container {
-      margin-top: 30px;
-      padding-bottom: 50px;
-      border-bottom: solid 1px #eee;
-      .message {
-        margin-top: 20px;
-        margin-left: 25px
-      }
-      .name-box {
-        width: 90%;
-        height: 40px;
-        margin-top: 10px;
-        margin-left: 25px;
-        padding: 5px;
-      }
+  }
+
+  .t__item__container {
+    margin-top: 30px;
+    padding-bottom: 50px;
+    border-bottom: solid 1px #eee;
+    .message {
+      margin-top: 20px;
+      margin-left: 25px
+    }
+    .name-box {
+      width: 90%;
+      height: 40px;
+      margin-top: 10px;
+      margin-left: 25px;
+      padding: 5px;
+    }
     .description-box {
       width: 90%;
       height: 120px;
@@ -123,6 +125,7 @@
       padding: 5px;
     }
   }
+
 
     .t__details__container {
       margin-top: 30px;
@@ -148,6 +151,7 @@
       }
     }
 
+    
     .t__post__container {
       margin-top: 30px;
       padding-bottom: 50px;

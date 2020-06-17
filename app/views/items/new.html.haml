@@ -28,20 +28,8 @@
         .t__details__container
           %p.message 商品の詳細
           %p.message カテゴリー（必須）
-          %select(name="select" class ="select-box")
-            %option 選択してください
-            %option(value="mens") メンズ
-            %option(value="lades") レディース
-            %option(value="kids") キッズ
-            %option(value="faniture") インテリア
-            %option(value="book") 本・音楽・ゲーム
-            %option(value="hoby") おもちゃ・ホビー・グッズ
-            %option(value="beauty") コスメ・香水・美容
-            %option(value="camera") 家電・スマホ・カメラ
-            %option(value="sports") スポーツ・レジャー
-            %option(value="faniture") ハンドメイド
-            %option(value="ticket") チケット
-            %option(value="bike") 自転車・オートバイ
+          .sell-category-box
+            = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "選択してください", selected: @item.category&.root_id}, {class: 'sell__item-category', id: 'parent_category'}
           %p.message ブランド名（任意）
           = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "選択してください"}, {class: "select-box"}
           %p.message 商品の状態（必須）

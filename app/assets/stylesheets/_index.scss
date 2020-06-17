@@ -251,6 +251,7 @@
       font-weight: bold;
     }
     &__lists{
+      padding-bottom: 50px;
       &__head{
         text-align: center;
         font-weight: bold;
@@ -259,14 +260,20 @@
         color: #3CCACE;
       }
       &__items{
-        width: 780px;
+        width: 1000px;
         margin: 26px auto;
         display: flex;
-        justify-content: space-around;
-        &__item{
-          width: 220px;
-          display: inline-block;
-          float: left;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      &__more {
+        float: right;
+        color: #3CCACE;
+        font-weight: bold;
+        padding-right: 100px;
+        a{
+          text-decoration: none;
+          color: inherit;
         }
       }
     }
