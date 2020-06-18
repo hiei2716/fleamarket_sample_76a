@@ -1,61 +1,50 @@
-= form_with do |f|
+= form_with model: @item, url: items_path , local: true do |f|
   .t__container
     .t__logo
       = link_to image_tag('logo.png', width: '170', height: '60'), root_path
 
     .t__form__container
-      .t__image__container
-        %p.message 商品出品画像（必須）
-        %p.message 最大5枚までアップロード出来ます
-        .post__drop__box__container
-          .label-content
-            %label{class: "label-box", id: "label-box--0"}
-              %pre.label-box__text-visible クリックしてファイルをアップロード
-      .t__item__container
-        %p.message 商品名（必須）
-        %input(type="text" name="name" placeholder="商品名（40字まで）" class = "name-box")
-        %p.message 商品の説明（必須）
-        %textarea(type="text" name="description" placeholder="商品説明(色、素材、重さ、定価、注意点など)" class = "description-box")
-      .t__details__container
-        %p.message 商品の詳細
-        %p.message カテゴリー（必須）
-        %select(name="select" class ="select-box")
-          %option 選択してください
-          %option(value="mens") メンズ
-          %option(value="lades") レディース
-          %option(value="kids") キッズ
-          %option(value="faniture") インテリア
-          %option(value="book") 本・音楽・ゲーム
-          %option(value="hoby") おもちゃ・ホビー・グッズ
-          %option(value="beauty") コスメ・香水・美容
-          %option(value="camera") 家電・スマホ・カメラ
-          %option(value="sports") スポーツ・レジャー
-          %option(value="faniture") ハンドメイド
-          %option(value="ticket") チケット
-          %option(value="bike") 自転車・オートバイ
-        %p.message ブランド名（任意）
-        %select(name="brand" class ="select-box")
-          %option 選択してください
-          %option(value="nobrand") ノーブランド
-          %option(value="puma") プーマ
-          %option(value="nike") ナイキ
-          %option(value="adidas") アディダス
-          %option(value="converse") コンバース
-          %option(value="newbalance") ニューバランス
-          %option(value="hitachi") HITACHI
-          %option(value="mitsubishi") 三菱
-          %option(value="sony") SONY
-          %option(value="fujitsu") 富士通
-          %option(value="nec") NEC
-          %option(value="panasonic")Panasonic
-        %p.message 商品の状態（必須）
-        %select(name="condition" class ="select-box")
-          %option 選択してください
-          %option(value="new") 新品
-          %option(value="good") 良い
-          %option(value="normal") 普通
-          %option(value="bad") 悪い
-          %option(value="sobad") とても悪い
+      %ul
+        .t__image__container
+          %p.message 商品出品画像（必須）
+          %p.message 最大5枚までアップロード出来ます
+          .post__drop__box__container
+            .label-content
+              %label{class: "label-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+        .t__item__container
+          %p.message 商品名（必須）
+          %input(type="text" name="name" placeholder="商品名（40字まで）" class = "name-box")
+          %p.message 商品の説明（必須）
+          %textarea(type="text" name="description" placeholder="商品説明(色、素材、重さ、定価、注意点など)" class = "description-box")
+          .t__details__container
+            %p.message 商品の詳細
+            %p.message カテゴリー（必須）
+            .sell-category-box
+              = f.collection_select :category_id, Category.roots, :id, :name, {prompt: "選択してください", selected: @item.category&.root_id}, {class: 'sell__item-category', id: 'parent_category'}
+            %p.message ブランド名（任意）
+            %select(name="brand" class ="select-box")
+              %option 選択してください
+              %option(value="nobrand") ノーブランド
+              %option(value="puma") プーマ
+              %option(value="nike") ナイキ
+              %option(value="adidas") アディダス
+              %option(value="converse") コンバース
+              %option(value="newbalance") ニューバランス
+              %option(value="hitachi") HITACHI
+              %option(value="mitsubishi") 三菱
+              %option(value="sony") SONY
+              %option(value="fujitsu") 富士通
+              %option(value="nec") NEC
+              %option(value="panasonic")Panasonic
+            %p.message 商品の状態（必須）
+            %select(name="condition" class ="select-box")
+              %option 選択してください
+              %option(value="new") 新品
+              %option(value="good") 良い
+              %option(value="normal") 普通
+              %option(value="bad") 悪い
+              %option(value="sobad") とても悪い
       .t__post__container
         %p.message 配送について
         %p.message 配送料の負担（必須）
