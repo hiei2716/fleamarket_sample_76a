@@ -1,5 +1,9 @@
 * {
   box-sizing: border-box;
+  margin:0px;
+  padding:0px;
+}
+
   .i__header{
     padding: 0 60px;
     &__inner{
@@ -55,8 +59,13 @@
         &__right{
           display: flex;
           margin-left: auto;
-          &__second{
-            padding-left: 40px;
+          #btn {
+            text-decoration: none;
+            :hover{color: orange;}
+            color: #333;
+          }
+          &__login{
+            padding-left:40px;
           }
         }
       }
@@ -185,4 +194,3 @@
       }
     }
   }
-}
