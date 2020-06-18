@@ -22,9 +22,10 @@
             .r__main__contents__second__bottom__price--right
               ¥34,439
           .r__main__contents__second__bottom__purchase
-            %button{type: "submit", value:"購入する", class:'r__submit-btn'}
-              .r__letter
-                購入する
+            = form_tag(action: :pay, method: :post) do
+              %button{type: "submit", value:"購入する", class:'r__submit-btn'}
+                .r__letter
+                  購入する
 
   .r__footer
     = render partial: 'layouts/footer'

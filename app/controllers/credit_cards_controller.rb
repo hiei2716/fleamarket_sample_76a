@@ -11,7 +11,7 @@ class CreditCardsController < ApplicationController
   end
 
   def create #PayjpとCardのデータベースを作成
-    Payjp.api_key = 'sk_test_f1d2d99808bd87c9b416bd9c'
+    Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_ACCESS_KEY]
 
     if params['payjp-token'].blank?
       redirect_to action: "index"
@@ -35,7 +35,7 @@ class CreditCardsController < ApplicationController
     if @credit_card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = "sk_test_f1d2d99808bd87c9b416bd9c"
+      Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       @default_card_information = customer.cards.retrieve(@credit_card.card_id)
     end
@@ -43,7 +43,7 @@ class CreditCardsController < ApplicationController
 
   def destroy #PayjpとCardデータベースを削除します
     unless @credit_card.blank?
-      Payjp.api_key =  "sk_test_f1d2d99808bd87c9b416bd9c"
+      Payjp.api_key =  Rails.application.credentials.PAYJP[:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
       customer.delete
       @credit_card.delete
@@ -53,6 +53,6 @@ class CreditCardsController < ApplicationController
   private
 
   def set_card
-    @credit_card = Credit_Card.where(id: 4).first if Credit_Card.where(id: 4).present?
+    @credit_card = Credit_Card.where(id: 5).first if Credit_Card.where(id: 5).present?
   end
 end

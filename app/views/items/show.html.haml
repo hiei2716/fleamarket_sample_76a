@@ -66,8 +66,12 @@
 
       .k__itemChangeBox
         %ul.k__itemChangeBox__btnList
-          %button.k__itemChangeBox__btnList__buyBtn
-            購入画面に進む
+          -if @item.buyer_id.present?
+            %li.k__itemChangeBox__btnList__soldOutNotice
+              売り切れました
+          - else
+            %button.k__itemChangeBox__btnList__buyBtn
+              購入画面に進む
 
       .k__commentBox
         .k__commentBox__list
