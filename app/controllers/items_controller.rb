@@ -4,11 +4,14 @@ class ItemsController < ApplicationController
   def index
     @items = Item.order('created_at DESC').limit(8)
   end
-  
-  def new
-    @item = Item.new
-    @image = Image.new
-    @item.images.new
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to items_path, notice: "出品しました"
+    else
+      redirect_to new_item_path, alert: "出品できません。入力必須項目を確認してください"
+    end
   end
 
   def show
@@ -18,6 +21,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @image = Image.new
+    @item.images.new
     @category_parent_array = []
     @category = Category.roots.each do |parent|
     @category_parent_array << parent.name
@@ -48,7 +53,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).premit(:name, :category_id, :price, :explanation, :condition, :shipping_fee, :shipping_day)
+    params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :condition_id, :wait, :postage, :prefecture_id, :buyer_id, :shipping_fee, :shipping_day, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)  
   end
 
   def edit  #事前に商品情報編集用アクションを定義
