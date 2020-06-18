@@ -35,7 +35,7 @@
                 %th カテゴリー
                 %td.k__table--blue
                   = link_to "#" do
-                    =@items.category.name
+                    =@items.category.name　#リンク先は未実装
               %tr
                 %th ブランド
                 %td
@@ -73,17 +73,17 @@
 
       - if user_signed_in? && current_user.id == @item.user_id
         .r__itemManageBox
-          = link_to "編集", edit_item_path, class: "r__itemManageBox__edit" #リンク先は未実装
+          = link_to "編集", "#", class: "r__itemManageBox__edit" #リンク先は未実装
           = link_to "削除", "#", method: :delete, class: "r__itemManageBox__delete" #リンク先は未実装
 
       - else 
         .k__itemChangeBox
           %ul.k__itemChangeBox__btnList
-            %li
-              = link_to "#" do
+            %li 
+              = link_to "#" do 
                 %button.k__itemChangeBox__btnList__buyBtn
                   購入画面に進む
-
+                  
       .k__commentBox
         .k__commentBox__list
           .k__commentBox__list__icon
