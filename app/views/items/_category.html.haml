@@ -2,7 +2,7 @@
   .i__middle__container__border
     .i__middle__container__border__content
       .i__middle__container__border__content__image
-        = image_tag item.images[0].src, width: '200px'
+        = image_tag item.images[0].src.to_s, width: '200px'
         -if item.buyer_id.present?
           .i__middle__container__border__content__image--triangle
           .i__middle__container__border__content__image__soldout

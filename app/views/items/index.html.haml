@@ -1,21 +1,4 @@
-.i__header
-  .i__header__inner
-    .i__header__inner__main
-      .i__header__inner__main__logo
-        = link_to "root_path" do
-          = image_tag 'logo.png', alt: '', height: '40px', width: '140px', class: 'img-logo'
-      %input.i__header__inner__main__search{name: "search", placeholder: "キーワードから探す", type: "search", value: ""}/ 
-      .i__header__inner__main__btn(type="submit")
-        = link_to "root_path" do
-          = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 'header__inner__main__btn__icon'
-
-    .i__header__inner__nav
-      .ul.i__header__inner__nav__left
-        %li.i__header__inner__nav__left__first カテゴリー
-        %li.i__header__inner__nav__left__second ブランド
-      .ul.i__header__inner__nav__right
-        %li.i__header__inner__nav__right__first ログイン
-        %li.i__header__inner__nav__right__second 新規会員登録
+= render 'layouts/header'
 
 .i__main
   .i__main__items

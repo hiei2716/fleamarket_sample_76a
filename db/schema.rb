@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_071936) do
+ActiveRecord::Schema.define(version: 2020_06_10_033405) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postal_code", null: false
+    t.string "city", null: false
+    t.string "local", null: false
+    t.string "block", null: false
+    t.string "building"
+    t.string "phone_number"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city"], name: "index_addresses_on_city"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,9 +67,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_071936) do
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.bigint "brand_id", null: false
-    t.string "condition", null: false
-    t.integer "postage", null: false
-    t.integer "prefecture", null: false
+    t.integer "condition_id", null: false
+    t.string "postage", null: false
+    t.integer "prefecture_id", null: false
     t.string "wait", null: false
     t.integer "price", null: false
     t.integer "buyer_id"
@@ -78,10 +89,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_071936) do
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "year", null: false
-    t.integer "month", null: false
-    t.integer "day", null: false
-    t.integer "phone_number", null: false
+    t.date "birth_date", null: false
+    t.string "phone_number", null: false
     t.integer "gender", null: false
     t.text "introduction"
     t.string "user_image"
@@ -93,6 +102,9 @@ ActiveRecord::Schema.define(version: 2020_06_16_071936) do
   end
 
   add_foreign_key "credit_credit_cards", "users"
+  add_foreign_key "addresses", "users"
+  add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
 end

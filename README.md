@@ -11,16 +11,14 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|year|integer|null: false|
-|month|integer|null: false|
-|day|integer|null: false|
-|phone_number|integer|null: false|
+|birth_date|string|null: false|
+|phone_number|string|null: false|
 |gender|integer|null: false|
 |introduction|text|
 |user_image|string|
 
 ### Association
-- has_many :addresses
+- has_one :addresses
 - has_many :items
 - has_many :comments
 - has_one :credit_credit_card, dependent: :destroy
@@ -52,11 +50,9 @@
 ## credit_credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credit_card_number|integer|null:false, unique: true|
-|expiration_year|integer|null:false|
-|expiration_month|integer|null:false|
-|security_code|integer|null:false|
-|user_id|references|null: false, foreign_key: true|
+|user_id|integer|null:false|
+|card_id|integer|null:false|
+|customer_id|integer|null:false|
 
 ### Association
 - belongs_to:user
@@ -67,10 +63,10 @@
 |name|string|null:：false|
 |description|text|null: false|
 |size|string|
-|category_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-|condition|string|null: false|
+|category|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
+|condition_id|integer|null: false|
 |postage|integer|null: false|
 |prefecture_id|integer|null: false|
 |wait|string|null: false|
