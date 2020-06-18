@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.includes(:images)
+    @items = Item.find(params[:id])
   end
   
   def new
@@ -49,3 +51,4 @@ class ItemsController < ApplicationController
     params.require(:item).premit(:name, :category_id, :price, :explanation, :condition, :shipping_fee, :shipping_day)
   end
 end
+
