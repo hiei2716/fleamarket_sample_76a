@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.includes(:images)
+    @item = Item.includes(:images)
     @items = Item.find(params[:id])
   end
 
@@ -46,35 +46,27 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
-  private
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
-  def item_params
-    params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :condition_id, :wait, :postage, :prefecture_id, :buyer_id, :shipping_fee, :shipping_day, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
-  end
-
-  def edit  #事前に商品情報編集用アクションを定義
-    @item = Item.find(params[:id])
+  def edit
   end
 
   def update  #事前に商品情報更新用アクションを定義
-    @item = Item.find(params[:id])
-    if @item = Item.update(item_params)
+    if @items = Item.update(item_params)
       redirect_to item_path, notice: "更新しました。"
     else
       redirect_to edit_item_path, alert: "変更できません。入力必須項目を確認してください。"
     end
-
-
   end
 
   private
-  #item_params ストロングパラメータ
+
+  def set_item
+    @items = Item.find(params[:id])
+  end
+
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :condition_id, :wait, :postage, :prefecture_id, :buyer_id, :shipping_fee, :shipping_day, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
+
+
 end
 
