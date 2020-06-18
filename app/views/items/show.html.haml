@@ -10,11 +10,11 @@
         .k__itemBox__body
           %ul
             %li
-              = image_tag @items.images[0].src, class:"firstImage"
+              = image_tag @items.images[0].src.to_s, class:"firstImage"
               %ul
                 - @items.images.each do |image|
                   %li
-                    = image_tag image.src, :width => "75", :height => "75",class:"imageList"
+                    = image_tag image.src.to_s, :width => "75", :height => "75",class:"imageList"
         .k__itemBox__price
           ¥ 
           =@items.price
@@ -35,7 +35,7 @@
                 %th カテゴリー
                 %td.k__table--blue
                   = link_to "#" do
-                    =@items.category.name　#リンク先は未実装
+                    =@items.category.name #リンク先は未実装
               %tr
                 %th ブランド
                 %td
@@ -71,9 +71,9 @@
                 =icon('fa','flag')
                 不適切な商品の通報
 
-      - if user_signed_in? && current_user.id == @item.user_id
+      - if user_signed_in? && current_user.id == @items.user_id
         .r__itemManageBox
-          = link_to "編集", "#", class: "r__itemManageBox__edit" #リンク先は未実装
+          = link_to "編集", edit_item_path(@items), class: "r__itemManageBox__edit" #リンク先は未実装
           = link_to "削除", "#", method: :delete, class: "r__itemManageBox__delete" #リンク先は未実装
 
       - else 
