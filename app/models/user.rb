@@ -5,10 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :credit_card, dependent: :destroy
   has_many :items
-end
-  
-    has_one :address
-    has_many :items
+  has_one :address
 
   # バリデーション
   validates :nickname, :family_name, :first_name, :family_name_kana, :first_name_kana, :birth_date, :phone_number, :gender, presence: true
@@ -20,4 +17,4 @@ end
     message: "全角カナのみが使えます" }
 
 
-  end
+end
