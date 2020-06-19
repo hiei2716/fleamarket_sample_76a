@@ -3,7 +3,7 @@
     = link_to image_tag('logo.png', width: '170', height: '60'), root_path
 
   .r__form__container
-    = form_with model: @items, local: true do |f|
+    = form_with model: @item, local: true do |f|
       %ul
         .r__title__container
           %p.message-title 商品の情報を入力
@@ -12,10 +12,10 @@
           %p.message 最大5枚までアップロード出来ます
           .post__drop__box__container
             .prev-content
-              - @items.images.each do |image|
+              - @item.images.each do |image|
                 .preview-box
                   .upper-box
-                    = image_tag image.src.url, width: "112", height: "112", alt: "preview"
+                    = image_tag image.src.url, alt: "preview"
                   .lower-box
                     .delete-box
                       .delete-btn
@@ -24,11 +24,13 @@
               %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
-              =f.fields_for :images do |i|
+              = f.fields_for :images do |i|
                 = i.file_field :src, class: "hidden-field"
-                -# = i.check_box :_destroy, class: "hidden-checkbox" 削除用
-              - @items.images.length.upto(4) do |i|
-                %input{name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_src", class: "hidden-field", type: "file"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][src]", id: "item_images_attributes_1_src" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][src]", id: "item_images_attributes_2_src" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][src]", id: "item_images_attributes_3_src" }
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][src]", id: "item_images_attributes_4_src" }
+                = i.check_box :_destroy, class: "hidden-checkbox"
         .r__item__container
           %p.message 商品名（必須）
           = f.text_field :name, class: "name-box",  placeholder: "商品名（必須 40文字まで)"

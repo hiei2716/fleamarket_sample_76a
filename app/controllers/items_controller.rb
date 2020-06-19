@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.order('created_at DESC').limit(8)
@@ -15,8 +15,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.includes(:images)
-    @items = Item.find(params[:id])
   end
 
   def new
@@ -50,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def update  #事前に商品情報更新用アクションを定義
-    if @items.update(item_params)
+    if @item.update(item_params)
       redirect_to item_path, notice: "更新しました。"
     else
       redirect_to edit_item_path, alert: "変更できません。入力必須項目を確認してください。"
@@ -60,7 +58,7 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @items = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def item_params
