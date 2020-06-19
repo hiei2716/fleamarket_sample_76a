@@ -55,6 +55,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to '/'
+    else
+      render :show
+    end
+  end
+
   private
 
   def set_item
