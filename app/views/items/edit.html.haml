@@ -16,6 +16,10 @@
                 .preview-box
                   .upper-box
                     = image_tag image.src.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .delete-box
+                      .delete-btn
+                        %span 削除
             .label-content
               %label{for: "item_images_attributes_0_src", class: "label-box", id: "label-box--0"}
                 %pre.label-box__text-visible クリックしてファイルをアップロード
