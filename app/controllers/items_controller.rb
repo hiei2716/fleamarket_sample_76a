@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:update, :edit, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
     @items = Item.order('created_at DESC').limit(8)
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def update  #事前に商品情報更新用アクションを定義
-    if @items = Item.update(item_params)
+    if @items.update(item_params)
       redirect_to item_path, notice: "更新しました。"
     else
       redirect_to edit_item_path, alert: "変更できません。入力必須項目を確認してください。"
