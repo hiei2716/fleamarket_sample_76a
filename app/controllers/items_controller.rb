@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:update, :edit, :destroy]
+  before_action :set_item, only: [:show, :update, :edit, :destroy]
 
   def index
     @items = Item.order('created_at DESC').limit(8)
@@ -15,13 +15,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @items = Item.includes(:images)
-    @items = Item.find(params[:id])
+    @item = Item.includes(:images)
+    @item = Item.find(params[:id])
   end
   
   def new
     @item = Item.new
-    @image = Image.new
     @item.images.new
     @category_parent_array = []
     @category = Category.roots.each do |parent|
@@ -49,6 +48,7 @@ class ItemsController < ApplicationController
   private
 
   def set_item
+    binding.pry
     @item = Item.find(params[:id])
   end
 
