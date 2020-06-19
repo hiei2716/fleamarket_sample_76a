@@ -1,5 +1,5 @@
 = render partial: 'layouts/header', locals: { header: @header }
-.p-wrapper
+.c
   .c-body
     .c-body_container
       %h2.c-body_container_message お支払い方法
@@ -17,5 +17,6 @@
             = form_tag(credit_card_path, method: :delete, id: 'charge-form',  name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
               %button.c-body_container_inner_body_content_btn 削除する
-              = link_to "戻る", :back, class: "p-card_input_form_container_back"
+              %button.c-body_container_inner_body_content_btn2
+                = link_to "戻る", :back, class: "c-body_container_inner_body_content_btn2_font"
 = render partial: 'layouts/footer', locals: { footer: @footer }
