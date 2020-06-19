@@ -1,12 +1,12 @@
 class CreditCardsController < ApplicationController
   require "payjp"
-  before_action :set_card
+  before_action :set_card, only: [:destroy, :show]
 
   def index
   end
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
-    credit_card = Credit_Card.where(user_id: 2)
+    credit_card = Credit_Card.where(user_id: current_user.id)
     #redirect_to action: "new" if credit_card.present?
   end
 
@@ -22,7 +22,7 @@ class CreditCardsController < ApplicationController
         card: params['payjp-token'], # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存します。
         #metadata: {user_id: current_user.id} # 無くてもOK。
       )
-      @credit_card = Credit_Card.new(user_id: 2, customer_id: customer.id, card_id: customer.default_card)
+      @credit_card = Credit_Card.new(user_id: current_user.id, customer_id: customer.id, credit_card_id: customer.default_card)
       if @credit_card.save
         redirect_to action: "index"
       else
@@ -37,7 +37,7 @@ class CreditCardsController < ApplicationController
     else
       Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_ACCESS_KEY]
       customer = Payjp::Customer.retrieve(@credit_card.customer_id)
-      @default_card_information = customer.cards.retrieve(@credit_card.card_id)
+      @default_card_information = customer.cards.retrieve(@credit_card.credit_card_id)
     end
   end
 
@@ -53,6 +53,6 @@ class CreditCardsController < ApplicationController
   private
 
   def set_card
-    @credit_card = Credit_Card.where(id: 5).first if Credit_Card.where(id: 5).present?
+    @credit_card = Credit_Card.where(user_id: current_user.id).first
   end
 end

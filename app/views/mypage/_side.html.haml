@@ -83,9 +83,9 @@
         %li.y__mypage-nav-list-item
           発送元お届け先住所変更
           %i.fa.fa-angle-right
-      = link_to "" do
+      = link_to credit_card_path(current_user.id) do
         %li.y__mypage-nav-list-item
-          支払い方法
+          お支払い情報の確認・削除
           %i.fa.fa-angle-right
       = link_to "" do
         %li.y__mypage-nav-list-item
