@@ -30,12 +30,12 @@
               %tr
                 %th 出品者
                 %td.k__table--blue
-                  = link_to @item.user.nickname
+                  = link_to @item.user.nickname, users_path(@item.user.id)
               %tr
                 %th カテゴリー
                 %td.k__table--blue
-                  = link_to "#" do
-                    =@item.category.name #リンク先は未実装
+                  = link_to category_path(@item.category.id) do
+                    =@item.category.name 
               %tr
                 %th ブランド
                 %td
@@ -73,8 +73,8 @@
 
       - if user_signed_in? && current_user.id == @item.user_id
         .r__itemManageBox
-          = link_to "編集", edit_item_path(@item), class: "r__itemManageBox__edit" #リンク先は未実装
-          = link_to "削除", item_path(@item.id), method: :delete, class: "r__itemManageBox__delete" #リンク先は未実装
+          = link_to "編集", edit_item_path(@item), class: "r__itemManageBox__edit" 
+          = link_to "削除", item_path(@item.id), method: :delete, class: "r__itemManageBox__delete" 
 
       - else 
         .k__itemChangeBox
