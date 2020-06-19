@@ -6,60 +6,60 @@
     .k__content
       .k__itemBox
         .k__itemBox__name
-          = @items.name
+          = @item.name
         .k__itemBox__body
           %ul
             %li
-              = image_tag @items.images[0].src, class:"firstImage"
+              = image_tag @item.images[0].src.to_s, class:"firstImage"
               %ul
-                - @items.images.each do |image|
+                - @item.images.each do |image|
                   %li
-                    = image_tag image.src, :width => "75", :height => "75",class:"imageList"
+                    = image_tag image.src.to_s, :width => "75", :height => "75",class:"imageList"
         .k__itemBox__price
           ¥ 
-          =@items.price
+          =@item.price
           .k__itemBox__price-detail
             %span (税込)
             %span 送料込み
         .k__itemDetail
           .noticeMsg
-            = simple_format @items.description
+            = simple_format @item.description
         .k__table
           %table
             %tbody
               %tr
                 %th 出品者
                 %td.k__table--blue
-                  = link_to @items.user.nickname
+                  = link_to @item.user.nickname
               %tr
                 %th カテゴリー
                 %td.k__table--blue
                   = link_to "#" do
-                    =@items.category.name　#リンク先は未実装
+                    =@item.category.name #リンク先は未実装
               %tr
                 %th ブランド
                 %td
-                  =@items.brand.name
+                  =@item.brand.name
               %tr
                 %th 商品のサイズ
                 %td
-                  =@items.size
+                  =@item.size
               %tr
                 %th 商品の状態
                 %td
-                  =@items.condition.name
+                  =@item.condition.name
               %tr
                 %th 配送料の負担
                 %td
-                  = @items.postage
+                  = @item.postage
               %tr
                 %th 発送元の地域
                 %td
-                  = @items.prefecture.name
+                  = @item.prefecture.name
               %tr
                 %th 発送日の目安
                 %td
-                  =@items.wait
+                  =@item.wait
         .k__optonalArea
           %ul
             %li.k__optinalBtn.k__likeBtn              
@@ -73,7 +73,7 @@
 
       - if user_signed_in? && current_user.id == @item.user_id
         .r__itemManageBox
-          = link_to "編集", "#", class: "r__itemManageBox__edit" #リンク先は未実装
+          = link_to "編集", edit_item_path(@item), class: "r__itemManageBox__edit" #リンク先は未実装
           = link_to "削除", "#", method: :delete, class: "r__itemManageBox__delete" #リンク先は未実装
 
       - else 

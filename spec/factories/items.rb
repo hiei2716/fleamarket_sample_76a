@@ -16,7 +16,6 @@ FactoryBot.define do
         item.images << build(:image)
       end
     end
-    
     association :category
   end
 end
