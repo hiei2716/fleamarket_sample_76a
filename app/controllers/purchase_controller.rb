@@ -1,11 +1,12 @@
 class PurchaseController < ApplicationController
-
+  before_action :set_category
   require 'payjp'
   before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
 
+
   def index
-    #@city = Prefecture.find(current_user.address.city).name
+    @city = Prefecture.find(current_user.address.city).name
     if @credit_card.blank?
       redirect_to controller: "credit_cards", action: "new"
     else
@@ -38,6 +39,13 @@ class PurchaseController < ApplicationController
 
   def set_card
     @credit_card = CreditCard.where(user_id: current_user.id).first
+  end
+
+  def set_category
+    @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent
+      end
   end
 
 end
