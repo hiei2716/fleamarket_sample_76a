@@ -173,6 +173,10 @@
       background-color: #3CCACE;
       border: 1px solid #3CCACE;
       color: #fff;
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
     }
     &__soldOutNotice{
       background-color: #3CCACE;

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :update, :edit, :destroy]
 
   def index
     @items = Item.order('created_at DESC').limit(8)
@@ -14,12 +14,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def new
     @item = Item.new
-    @image = Image.new
     @item.images.new
     @category_parent_array = []
     @category = Category.roots.each do |parent|
