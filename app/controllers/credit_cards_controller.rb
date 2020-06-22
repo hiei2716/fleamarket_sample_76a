@@ -1,5 +1,4 @@
 class CreditCardsController < ApplicationController
-  require "payjp"
   before_action :set_card, only: [:destroy, :show]
   before_action :set_category
   
@@ -8,14 +7,14 @@ class CreditCardsController < ApplicationController
 
   def new # カードの登録画面。送信ボタンを押すとcreateアクションへ。
     credit_card = CreditCard.where(user_id: current_user.id)
-    redirect_to action: "show" if credit_card.present?
+    redirect_to credit_cards_path if credit_card.present?
   end
 
   def create #PayjpとCardのデータベースを作成
     Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_ACCESS_KEY]
 
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to new_credit_card_path
     else
       # トークンが正常に発行されていたら、顧客情報をPAY.JPに登録。
       customer = Payjp::Customer.create(

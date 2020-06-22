@@ -1,6 +1,5 @@
 class PurchaseController < ApplicationController
   before_action :set_category
-  require 'payjp'
   before_action :set_item,       only: [:index, :pay]
   before_action :set_card,       only: [:index, :pay]
 
@@ -8,7 +7,7 @@ class PurchaseController < ApplicationController
   def index
     @city = Prefecture.find(current_user.address.city).name
     if @credit_card.blank?
-      redirect_to controller: "credit_cards", action: "new"
+      redirect_to new_credit_card_path
     else
       Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_ACCESS_KEY]
       #保管した顧客IDでpayjpから情報取得
@@ -21,9 +20,9 @@ class PurchaseController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials.PAYJP[:PAYJP_ACCESS_KEY]
     Payjp::Charge.create(
-    :amount => @item.price,
-    :customer => @credit_card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
+      :amount => @item.price,
+      :customer => @credit_card.customer_id, #顧客ID
+      :currency => 'jpy', #日本円
     )
     @item.buyer_id = 0
     @item.buyer_id = @item.buyer_id + current_user.id
