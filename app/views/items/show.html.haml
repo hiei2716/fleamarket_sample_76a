@@ -76,13 +76,14 @@
           -if @item.buyer_id.present?
             %li.k__itemChangeBox__btnList__soldOutNotice
               売り切れました
-          - else
-            %button.k__itemChangeBox__btnList__buyBtn
-              = link_to "購入画面に進む", purchase_index_path, class:"k__itemChangeBox__btnList__buyBtn__link"
       - if user_signed_in? && current_user.id == @item.user_id
         .r__itemManageBox
           = link_to "編集", edit_item_path(@item), class: "r__itemManageBox__edit" 
           = link_to "削除", item_path(@item.id), method: :delete, class: "r__itemManageBox__delete" 
+      - else 
+        .k__itemChangeBox
+          %button.k__itemChangeBox__btnList__buyBtn
+            = link_to "購入画面に進む", purchase_index_path, class:"k__itemChangeBox__btnList__buyBtn__link"
                   
       .k__commentBox
         .k__commentBox__list

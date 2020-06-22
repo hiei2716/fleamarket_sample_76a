@@ -159,26 +159,25 @@
   background-color: #ffffff;
   
   &__btnList {
-    &__editBtn{
-      background-color: #3CCACE;
-      border: 1px solid #3CCACE;
-      color: #fff;
+  
+      &__buyBtn {
+        cursor: pointer;
+        background-color: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        a {
+          display:block;
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+      
     }
     &__deleteBtn {
       background-color: grey;
       border: 1px solid grey;
     }
-    &__buyBtn {
-      cursor: pointer;
-      background-color: #3CCACE;
-      border: 1px solid #3CCACE;
-      color: #fff;
-      a {
-        display:block;
-        text-decoration: none;
-        color: #fff;
-      }
-    }
+ 
     &__soldOutNotice{
       background-color: #3CCACE;
       color: #fff;
@@ -211,7 +210,6 @@
       margin: 16px 0;
       cursor: pointer;
     }
-  }
  
 }
 
