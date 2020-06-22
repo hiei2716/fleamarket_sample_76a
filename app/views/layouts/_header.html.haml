@@ -4,11 +4,11 @@
       .i__header__inner__main__logo
         = link_to "/" do
           = image_tag 'logo.png', alt: '', height: '40px', width: '140px', class: 'img-logo'
-      %input.i__header__inner__main__search{name: "search", placeholder: "キーワードから探す", type: "search", value: ""}/ 
-      .i__header__inner__main__btn(type="submit")
-        = link_to "/" do
-          = image_tag 'icon-search 1.png', alt: '',height: '22px',width:'22px',type: 'submit', class: 'header__inner__main__btn__icon'
-
+      = search_form_for @search, url: search_items_path, class: 'i__header__inner__main__search', method: :get do |f|
+        = f.search_field :name_cont, placeholder: "キーワードから探す", class: 'i__header__inner__main__search__box'
+        = button_tag type: 'submit', class: 'i__header__inner__main__search__btn' do
+          = image_tag 'icon-search 1.png', alt: '',height: '22px', width:'22px', type: 'submit', class: 'header__inner__main__search__btn__icon'
+          
     .i__header__inner__nav
       %ul.i__header__inner__nav__left
         %li.i__header__inner__nav__left__first

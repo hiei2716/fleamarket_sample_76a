@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:update, :edit, :destroy]
+  before_action :set_search
 
   def index
     @items = Item.order('created_at DESC').limit(8)
@@ -46,6 +47,11 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
 
+  def search
+    @search = Item.ransack(params[:q])
+    @items = @search.result.order("id DESC")
+  end
+
   private
 
   def set_item
@@ -54,6 +60,11 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :condition_id, :wait, :postage, :prefecture_id, :buyer_id, :shipping_fee, :shipping_day, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)  
+  end
+
+  def set_search
+    @search = Item.ransack(params[:q])
+    @items = @search.result(distinct: true)
   end
 end
 
