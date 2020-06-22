@@ -29,8 +29,8 @@
             %tbody
               %tr
                 %th 出品者
-                %td.k__table--blue
-                  = link_to @item.user.nickname, users_path(@item.user.id)
+                %td
+                  = @item.user.nickname
               %tr
                 %th カテゴリー
                 %td.k__table--blue
@@ -104,14 +104,6 @@
               %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %br
           %input.k__commentBtn{type: "submit", value: "コメントする"}
-    .k__links
-      %ur
-        %li
-          = link_to "#" do
-            <前の商品
-        %li
-          = link_to "#" do
-            後ろの商品>
 
 .k-footer
   = render partial: 'layouts/footer'
