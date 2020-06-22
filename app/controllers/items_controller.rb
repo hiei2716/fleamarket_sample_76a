@@ -14,11 +14,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.includes(:images)
-    @item = Item.find(params[:id])
-  end
-
   def new
     @item = Item.new
     @item.images.new

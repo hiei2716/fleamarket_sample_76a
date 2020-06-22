@@ -14,11 +14,8 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  resources :credit_cards, only: [:index, :new, :create, :show, :destroy] do
-    collection do
-      post 'pay', to: 'credit_cards#pay'
-    end
-  end
+  resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
+
   resources :purchase, only: [:index] do
     collection do
       post 'pay', to: 'purchase#pay'

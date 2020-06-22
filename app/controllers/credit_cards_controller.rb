@@ -24,7 +24,7 @@ class CreditCardsController < ApplicationController
       )
       @credit_card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, credit_card_id: customer.default_card)
       if @credit_card.save
-        redirect_to action: "index"
+        redirect_to new_credit_card_path
       else
         redirect_to action: "create"
       end
@@ -58,8 +58,5 @@ class CreditCardsController < ApplicationController
 
   def set_category
     @category_parent_array = []
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent
-      end
   end
 end

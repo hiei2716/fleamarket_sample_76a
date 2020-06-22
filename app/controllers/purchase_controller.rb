@@ -42,9 +42,6 @@ class PurchaseController < ApplicationController
 
   def set_category
     @category_parent_array = []
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent
-      end
   end
 
 end
