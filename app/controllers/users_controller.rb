@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def set_user_current
-    @user = User.find(current_user.id)
+    user = User.find(current_user.id)
   end
 
 end
