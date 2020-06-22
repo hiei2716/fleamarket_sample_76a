@@ -1,4 +1,4 @@
-$(document).on(function() {
+$(function() {
   $(function(){
 
     function buildHTML(count) {     
