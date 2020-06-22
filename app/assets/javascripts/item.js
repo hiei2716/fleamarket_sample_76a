@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on(function() {
   $(function(){
 
     function buildHTML(count) {     
