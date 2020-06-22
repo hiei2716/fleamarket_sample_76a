@@ -1,7 +1,7 @@
 .y__l-side
   %nav.y__mypage-nav
   %ul.y__mypage-nav-list
-    = link_to do
+    = link_to users_path do
       %li.y__mypage-nav-list-item
         マイページ
         %i.fa.fa-angle-right
@@ -17,7 +17,7 @@
       %li.y__mypage-nav-list-item
         いいね一覧
         %i.fa.fa-angle-right
-    = link_to "" do
+    = link_to new_item_path do
       %li.y__mypage-nav-list-item
         出品する
         %i.fa.fa-angle-right
@@ -105,7 +105,7 @@
         %li.y__mypage-nav-list-item
           電話番号の確認
           %i.fa.fa-angle-right
-      = link_to "" do
+      = link_to logout_users_path do
         %li.y__mypage-nav-list-item
           ログアウト
           %i.fa.fa-angle-right

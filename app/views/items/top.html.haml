@@ -9,7 +9,7 @@
         フリマアプリです
       .i__main__visual__content__logo
         .i__main__visual__content__logo__app
-          = link_to "http://google.co.jp" do
+          = link_to "http://apple.com/jp/" do
             = image_tag 'apple-icon.png', alt: '',height: '50px', width: '165px', class: 'apple'
         .i__main__visual__content__logo__app
           = link_to "http://google.co.jp" do
@@ -55,10 +55,10 @@
         欲しかったあの商品に出会えるかもしれません。
       .i__main__middle__content__logo
         .i__main__middle__content__logo__app
-          = link_to "http://google.co.jp" do
+          = link_to "http://apple.com/jp/" do
             = image_tag 'apple-icon.png', alt: '',height: '50px', width: '165px', class: 'apple'
         .i__main__middle__content__logo__app
-          = link_to "http://google.co.jp" do
+          = link_to "http://apple.com/jp/" do
             = image_tag 'google-play.png', alt: '', height: '50px', width: '165px',class: 'google'
 
 
@@ -101,44 +101,10 @@
       %p.i__banner__visual__content__text 今すぐ無料ダウンロード！
     .i__banner__visual__logo
       .i__banner__visual__logo__app
-        = link_to "http://google.co.jp" do
+        = link_to "http://apple.com/jp/" do
           = image_tag 'apple-icon.png', alt: '',height: '50px', width: '165px', class: 'apple'
       .i__banner__visual__logo__app
         = link_to "http://google.co.jp" do
           = image_tag 'google-play.png', alt: '', height: '50px', width: '165px',class: 'google'
 .i__footer
-  .i__footer__contents
-    .ul.i__footer__contents__list
-      %h2.i__footer__contents__list__top FURIMAについて
-      %li
-        = link_to '会社概要（運営会社）', "root_path", class: "i__footer__contents__list__top" 
-      %li
-        = link_to 'プライバシーポリシー', "root_path", class: "i__footer__contents__list__top" 
-      %li
-        = link_to 'FURIMA利用規約', "root_path", class: "i__footer__contents__list__top" 
-      %li
-        = link_to 'ポイントに関する特約', "root_path", class: "i__footer__contents__list__top" 
-    .ul.i__footer__contents__list
-      %h2.i__footer__contents__list__top FURIMAを見る
-      %li
-        = link_to 'カテゴリー一覧', "root_path", class: "i__footer__contents__list__top" 
-      %li
-        = link_to 'ブランド一覧', "root_path", class: "i__footer__contents__list__top" 
-    .ul.i__footer__contents__list
-      %h2.i__footer__contents__list__top ヘルプ＆ガイド
-      %li
-        = link_to 'FURIMAガイド', "root_path", class: "i__footer__contents__list__top" 
-      %li
-        = link_to 'FURIMAロゴ利用ガイドライン', "root_path", class: "i__footer__contents__list__top"
-
-      %li
-        = link_to 'お知らせ', "root_path", class: "i__footer__contents__list__top" 
-
-  .i__footer__logo
-    = link_to "root_path" do
-      = image_tag 'logo-white.png', alt: '', height: '40px', width: '140px', class: 'footer__logo__icon'
-  %p © FURIMA
-  .i__btn__icon
-    %span.i__btn__icon__text 出品する
-    = link_to "root_path" do
-      = image_tag 'icon_camera.png', alt: '' , height: '55px', width: '55px', class: ''
+  = render partial: 'layouts/footer'
