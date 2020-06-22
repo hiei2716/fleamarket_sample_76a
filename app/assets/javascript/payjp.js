@@ -20,8 +20,6 @@ document.addEventListener(
             $("#exp_year").removeAttr("name"); //データを自サーバにpostしないように削除
             $("#charge-form").append(
               $('<input type="hidden" name="payjp-token">').val(response.id)
-              //`<input type="hidden" name="payjp_token" value=${response.id}>
-              //<input type="hidden" name="card_token" value=${response.card.id}>`
             ); //取得したトークンを送信できる状態に
             document.inputForm.submit();
             alert("登録が完了しました"); //確認用

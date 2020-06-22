@@ -1,8 +1,7 @@
 .y__credit-form
   .y__credit-form--header クレジットカード情報入力
   .y__credit-form--body
-    -# 機能実装後に変更
-    = form_tag('/credit_cards', method: :post, id: 'charge-form',  name: "inputForm") do
+    = form_tag(pay_credit_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
       .y__credit-form--body--content
         %label カード番号
         %span.y__form-require 必須
