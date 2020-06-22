@@ -21,7 +21,7 @@
 - has_one :addresses
 - has_many :items
 - has_many :comments
-- has_one :credit_credit_card, dependent: :destroy
+- has_one :credit_card, dependent: :destroy
 
 ### index
 - add_index: [:nickname, :gender]
@@ -47,7 +47,7 @@
 ### index
 - add_index: [:city, :user_id]
 
-## credit_credit_cardsテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null:false|
