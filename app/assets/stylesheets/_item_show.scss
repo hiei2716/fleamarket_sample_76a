@@ -34,7 +34,6 @@
         margin: 0 auto;
         flex-direction: column;
         img {
-          width: 100%;
           object-fit: cover;
           height: 346px;
         }
@@ -160,21 +159,25 @@
   background-color: #ffffff;
   
   &__btnList {
-    &__editBtn{
-      background-color: #3CCACE;
-      border: 1px solid #3CCACE;
-      color: #fff;
+  
+      &__buyBtn {
+        cursor: pointer;
+        background-color: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        a {
+          display:block;
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+      
     }
     &__deleteBtn {
       background-color: grey;
       border: 1px solid grey;
     }
-    &__buyBtn {
-      cursor: pointer;
-      background-color: #3CCACE;
-      border: 1px solid #3CCACE;
-      color: #fff;
-    }
+ 
     &__soldOutNotice{
       background-color: #3CCACE;
       color: #fff;
@@ -207,7 +210,6 @@
       margin: 16px 0;
       cursor: pointer;
     }
-  }
  
 }
 
@@ -296,19 +298,5 @@
     border-radius: 100px;
     width: 60%;
     border: 1px solid #3CCACE;
-  }
-}
-
-.k__links {
-  font-size: 16px;
-  list-style: none;
-  height: 30px;
-  li {
-    display: inline;
-      color: #3CCACE;
-      text-decoration: none;
-  }
-  li:last-child {
-    float: right;
   }
 }

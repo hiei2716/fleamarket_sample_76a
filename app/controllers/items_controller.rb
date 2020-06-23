@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:update, :edit, :destroy]
   before_action :set_search
+  before_action :set_item, only: [:show, :update, :edit, :destroy]
 
   def index
     @items = Item.order('created_at DESC').limit(8)
@@ -15,14 +15,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @items = Item.includes(:images)
-    @items = Item.find(params[:id])
-  end
-  
   def new
     @item = Item.new
-    @image = Image.new
     @item.images.new
     @category_parent_array = []
     @category = Category.roots.each do |parent|
@@ -52,6 +46,25 @@ class ItemsController < ApplicationController
     @items = @search.result.order("id DESC").page(params[:page]).per(5)
   end
 
+  def edit
+  end
+
+  def update  #事前に商品情報更新用アクションを定義
+    if @item.update(item_params)
+      redirect_to item_path, notice: "更新しました。"
+    else
+      redirect_to edit_item_path, alert: "変更できません。入力必須項目を確認してください。"
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to '/'
+    else
+      render :show
+    end
+  end
+
   private
 
   def set_item
@@ -59,7 +72,9 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :condition_id, :wait, :postage, :prefecture_id, :buyer_id, :shipping_fee, :shipping_day, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)  
+    params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :condition_id, :wait, :postage, :prefecture_id, :buyer_id, :shipping_fee, :shipping_day, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
+
+
 end
 

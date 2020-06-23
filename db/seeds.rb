@@ -1,3 +1,17 @@
+lady = Brand.create(name: 'ノーブランド')
+lady = Brand.create(name: 'プーマ')
+lady = Brand.create(name: 'ナイキ')
+lady = Brand.create(name: 'アディダス')
+lady = Brand.create(name: 'コンバース')
+lady = Brand.create(name: 'ニューバランス')
+lady = Brand.create(name: 'HITACHI')
+lady = Brand.create(name: '三菱')
+lady = Brand.create(name: 'SONY')
+lady = Brand.create(name: '富士通')
+lady = Brand.create(name: 'NEC')
+lady = Brand.create(name: 'Panasonic')
+
+
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
