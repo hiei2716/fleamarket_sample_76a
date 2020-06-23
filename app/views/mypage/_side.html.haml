@@ -83,10 +83,16 @@
         %li.y__mypage-nav-list-item
           発送元お届け先住所変更
           %i.fa.fa-angle-right
-      = link_to new_credit_card_path do
-        %li.y__mypage-nav-list-item
-          支払い方法
-          %i.fa.fa-angle-right
+      - if current_user.credit_card.present?
+        = link_to credit_card_path(current_user.id) do
+          %li.y__mypage-nav-list-item
+            お支払い情報の確認
+            %i.fa.fa-angle-right
+      - else
+        = link_to new_credit_card_path(current_user.id) do
+          %li.y__mypage-nav-list-item
+            お支払い情報の登録
+            %i.fa.fa-angle-right
       = link_to "" do
         %li.y__mypage-nav-list-item
           メール/パスワード

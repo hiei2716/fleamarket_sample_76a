@@ -30,7 +30,13 @@
     = link_to "root_path" do
       = image_tag 'logo-white.png', alt: '', height: '40px', width: '140px', class: 'footer__logo__icon'
   %p © FURIMA
-  .i__btn__icon
-    %span.i__btn__icon__text 出品する
-    = link_to "/" do
-      = image_tag 'icon_camera.png', alt: '' , height: '55px', width: '55px', class: ''
+  - if user_signed_in?
+    %a(href="/items/new")
+      .i__btn__icon
+        %span.i__btn__icon__text 出品する
+        = image_tag 'icon_camera.png', alt: '' , height: '55px', width: '55px', class: ''
+  - else
+    %a(href="/users/sign_in")
+      .i__btn__icon
+        %span.i__btn__icon__text ログインして出品する
+        = image_tag 'icon_camera.png', alt: '' , height: '55px', width: '55px', class: ''

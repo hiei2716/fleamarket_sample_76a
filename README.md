@@ -50,11 +50,9 @@
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|integer|null:false, unique: true|
-|customer|integer|null:false|
-|expiration_month|integer|null:false|
-|security_code|integer|null:false|
-|card|references|null: false, foreign_key: true|
+|user_id|integer|null:false|
+|card_id|integer|null:false|
+|customer_id|integer|null:false|
 
 ### Association
 - belongs_to:user

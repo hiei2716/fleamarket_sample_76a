@@ -14,7 +14,14 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+  resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
 
+  resources :purchase, only: [:index] do
+    collection do
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
   resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -23,9 +30,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :credit_cards, only: [:new]
-  resources :purchase, only: [:index]
-  resources :items, only: [:index, :new, :create, :show]
   resources :categories, only: :show
   resources :images, only: [:index, :new, :show]
 end
