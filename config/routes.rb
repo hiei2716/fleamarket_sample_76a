@@ -12,14 +12,17 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
     collection do
       get 'logout'
-    end
+    end 
   end
   resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
 
-  resources :purchase, only: [:index] do
+  resources :purchase, only:[:index] do
     collection do
-      post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
+    end
+    member do
+      get 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
     end
   end
   resources :items do

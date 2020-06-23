@@ -6,6 +6,7 @@ class PurchaseController < ApplicationController
 
   def index
     @city = Prefecture.find(current_user.address.city).name
+    @credit_card = CreditCard.where(user_id: current_user.id).first
     if @credit_card.blank?
       redirect_to new_credit_card_path
     else
@@ -35,7 +36,7 @@ class PurchaseController < ApplicationController
 
   private
   def set_item
-    @item = Item.where(id: 2).first
+     @item = Item.find(params[:id])
     #仕上がり次第、paramsに変更
   end
 
