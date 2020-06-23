@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'done', to: 'purchase#done'
     end
   end
+  
   resources :items, only: [:index, :new, :create, :show, :edit, :update] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }

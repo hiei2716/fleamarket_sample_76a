@@ -43,6 +43,11 @@ class ItemsController < ApplicationController
   def edit
   end
 
+
+  def show
+
+  end
+
   def update  #事前に商品情報更新用アクションを定義
     if @item.update(item_params)
       redirect_to item_path, notice: "更新しました。"
@@ -68,7 +73,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :brand_id, :price, :condition_id, :wait, :postage, :prefecture_id, :buyer_id, :shipping_fee, :shipping_day, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
-
 
 end
 

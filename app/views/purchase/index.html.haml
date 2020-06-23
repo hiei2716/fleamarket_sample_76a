@@ -8,24 +8,38 @@
         購入内容の確認
       .r__main__contents__second
         .r__main__contents__second__middle
-          .r__main__contents__second__middle__item__image
-            = image_tag "https://static.mercdn.net/thumb/photos/m47880230608_1.jpg?1591170738", width: "80", height: "60"
+          %ul
+            %li
+              = image_tag @item.images[0].src.to_s, class:"firstImage"
+      
           .r__main__contents__second__middle__item__detail
-            %p.r__item__name
-              NIKEコラボレーション ワッフルレーサー Black / 27
-            %p.r__item__price
-              ¥34,439 （税込）送料込み
-        .r__main__contents__second__bottom
-          .r__main__contents__second__bottom__price
-            .r__main__contents__second__bottom__price--left
-              支払い金額
-            .r__main__contents__second__bottom__price--right
-              ¥34,439
-          .r__main__contents__second__bottom__purchase
-            = form_tag(action: :pay, method: :post) do
-              %button{type: "submit", value:"購入する", class:'r__submit-btn'}
-                .r__letter
-                  購入する
+            %ul
+              %li.r__item__name
+                #{@item.name}
+              %li.r__item__price
+                ¥#{@item.price} (税込み、送料込み)
+
+      .r__main__contents__third
+        .r__main__contents__third__price
+          .r__main__contents__third__price__box
+            %p.message
+              お支払い金額
+            .price-box
+              ¥#{@item.price}
+        .r__main__contents__third__pay
+          %p.message-pay
+            お支払い方法はクレジットカード決済のみとなります
+        .r__main__contents__third__address
+          %p.message
+            配送先（ご登録先住所への配送になります。）
+          - if current_user.address.building.present?
+            #{@city}#{current_user.address.local}#{current_user.address.block}#{current_user.address.building}
+          - else
+            #{@city}#{current_user.address.local}#{current_user.address.block}
+
+        .r__main__contents__third__btn
+          = form_tag(action: :pay, method: :post) do
+            %button.button 購入する
 
   .r__footer
     = render partial: 'layouts/footer'
