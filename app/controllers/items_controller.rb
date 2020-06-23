@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
 
   def search
     @search = Item.ransack(params[:q])
-    @items = @search.result.order("id DESC")
+    @items = @search.result.order("id DESC").page(params[:page]).per(5)
   end
 
   private
