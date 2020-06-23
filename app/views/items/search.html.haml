@@ -7,7 +7,9 @@
         = @search.name_cont
         の検索結果
         .y__search-result-number
-          1-5件の表示
+          1 - 
+          = @items.count
+          件の表示
         .y__search-result-items-box
           - @items.each do |item|
             .result__item
