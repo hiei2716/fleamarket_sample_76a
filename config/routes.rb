@@ -16,14 +16,6 @@ Rails.application.routes.draw do
   end
   resources :credit_cards, only: [:index, :new, :create, :show, :destroy]
 
-  # resources :purchase, only: [:index] do
-  #   collection do
-  #     post 'pay', to: 'purchase#pay'
-  #     get 'done', to: 'purchase#done'
-  #   end
-  # end
-
-
   resources :purchase, only:[:index] do
     collection do
       get 'done', to: 'purchase#done'
@@ -33,10 +25,7 @@ Rails.application.routes.draw do
       post 'pay', to: 'purchase#pay'
     end
   end
-
-  
-  
-  resources :items, only: [:index, :new, :create, :show, :edit, :update] do
+  resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
