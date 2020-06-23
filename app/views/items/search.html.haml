@@ -13,7 +13,7 @@
             .result__item
               =link_to item_path(item.id),method: :get do
                 .result__item__image
-                  = image_tag item.images[0], height: "160px", width: "160px"
+                  = image_tag item.images[0].src.url, height: "160px", width: "160px"
                   %p
                     ¥
                     = item.price
