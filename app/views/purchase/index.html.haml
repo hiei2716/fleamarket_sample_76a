@@ -10,14 +10,12 @@
         .r__main__contents__second__middle
           %ul
             %li
-              = image_tag @item.images[0].src.to_s, class:"firstImage"
-      
-          .r__main__contents__second__middle__item__detail
-            %ul
-              %li.r__item__name
-                #{@item.name}
-              %li.r__item__price
-                ¥#{@item.price} (税込み、送料込み)
+              = image_tag @item.images[0].src.to_s, class:"firstImage",width:120
+          %ul.r__item__box
+            %li.r__item__box__name
+              #{@item.name}
+            %li.r__item__box__price
+              ¥#{@item.price} (税込み、送料込み)
 
       .r__main__contents__third
         .r__main__contents__third__price
@@ -28,7 +26,9 @@
               ¥#{@item.price}
         .r__main__contents__third__pay
           %p.message-pay
-            お支払い方法はクレジットカード決済のみとなります
+            支払い方法
+          %p.message-pay
+            クレジットカード決済のみとなります
         .r__main__contents__third__address
           %p.message
             配送先（ご登録先住所への配送になります。）

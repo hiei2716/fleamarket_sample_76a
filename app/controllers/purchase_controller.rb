@@ -35,18 +35,14 @@ class PurchaseController < ApplicationController
   end
 
   private
-
   def set_item
-    
      @item = Item.find(params[:id])
-
+    #仕上がり次第、paramsに変更
   end
-
 
   def set_card
     @credit_card = CreditCard.where(user_id: current_user.id).first
   end
-
 
   def set_category
     @category_parent_array = []

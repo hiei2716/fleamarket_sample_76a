@@ -10,7 +10,11 @@
         .k__itemBox__body
           %ul
             %li
-              = image_tag @item.images[0].src.to_s, class:"firstImage"
+              = image_tag @item.images[0].src.to_s, class:"firstImage", width:520
+              -if @item.buyer_id.present?
+                .triangle
+                .sold
+                  SOLD
               %ul
                 - @item.images.each do |image|
                   %li
@@ -83,7 +87,7 @@
           - else
             .k__itemChangeBox
               %button.k__itemChangeBox__btnList__buyBtn
-                = link_to "購入画面に進む", purchase_index_path(@item), class:"k__itemChangeBox__btnList__buyBtn__link"
+                = link_to "購入画面に進む", purchase_path(@item), class:"k__itemChangeBox__btnList__buyBtn__link"
     
       .k__commentBox
         .k__commentBox__list
